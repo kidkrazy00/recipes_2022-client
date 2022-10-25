@@ -1,0 +1,218 @@
+@mixin btnAlternate {
+    &--active,
+    &:focus {
+        opacity: .5;
+        cursor: default;
+    }
+    
+    &--disabled {
+        opacity: 0;
+        cursor: default;
+    }
+}
+
+.btn {
+
+    &__basic {
+        @include button($display: flex, $grow:1, $shrink:1, $flex: auto);
+        @include buttonStyle();
+        width: fit-content;
+        justify-self: center;
+        transition: all var(--duration-quick);
+    }
+
+    &__text {
+        @include button($display: inline-flex, $grow:0, $flex: auto);
+        @include buttonStyle(text);
+        transition: all var(--duration-quick);
+    }
+
+    &__back {
+        @include button($display: inline-flex, $grow:0, $flex: auto);
+        @include buttonStyle(text);
+        font-weight: var(--font-weight-button);
+        transition: all var(--duration-quick);
+
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--size-icon-large);
+            height: var(--size-icon-large);
+            min-height: $size-touch;
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        
+            &:before {
+                content: "\f053";
+            }
+        }
+    }
+
+    &__next {
+        @include button($display: inline-flex, $grow:0, $flex: auto);
+        @include buttonStyle(text);
+        font-weight: var(--font-weight-button);
+        transition: all var(--duration-quick);
+        
+
+        i {
+            order: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--size-icon-large);
+            height: var(--size-icon-large);
+            min-height: $size-touch;
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        
+            &:before {
+                content: "\f054";
+            }
+        }
+    }
+
+    &__list {
+        @include button($display: inline-flex, $grow:0, $flex: auto);
+        @include buttonStyle(text);
+        font-weight: var(--font-weight-button);
+        transition: all var(--duration-quick);
+
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--size-icon-large);
+            height: var(--size-icon-large);
+            min-height: $size-touch;
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        
+            &:before {
+                content: "\f03a";
+            }
+        }
+    }
+
+    &__link {
+        @include buttonStyle(text);
+        @include button($display: flex, $grow:0, $flex: auto, $padding: 0);
+        font-weight: var(--font-weight-button);
+        transition: all var(--duration-quick);
+
+        i {
+            order: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $size-root-full;
+            height: $size-touch;
+            margin: 0 $size-root-half;
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        
+            &:before {
+                content: "\f35d";
+            }
+        }
+    }
+
+    &__ghost {
+        @include buttonStyle(ghost);
+        @include button($display: flex, $grow:0, $flex: auto, $padding: .5rem);
+        font-weight: var(--font-weight-button);
+        transition: all var(--duration-quick);
+
+        i {
+            order: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $size-root-full;
+            height: $size-touch;
+            margin: 0 $size-root-half;
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        
+            &:before {
+                content: "\f054";
+                color: var(--color-button-fg);
+            }
+        }
+    }
+
+    &__logout {
+        @include button($display: inline-flex, $grow:0, $flex: auto);
+        @include buttonStyle(text);
+        font-weight: var(--font-weight-button);
+        transition: all var(--duration-quick);
+
+        i {
+            order: +1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--size-icon-large);
+            height: var(--size-icon-large);
+            min-height: $size-touch;
+            margin: 0 0 0 $size-root-full;
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        
+            &:before {
+                content: "\f2f5";
+            }
+        }
+    }
+
+    &__submit {
+        @include button($display: inline-flex, $grow:1, $flex: 100%);
+        @include buttonStyle(default);
+        font-weight: var(--font-weight-button);
+        transition: all var(--duration-quick);
+
+        i {
+            order: +1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--size-icon-large);
+            height: var(--size-icon-large);
+            min-height: $size-touch;
+            margin: 0 0 0 $size-root-full;
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        
+            &:before {
+                content: "\f2f6";
+            }
+        }
+    }
+
+    &__send {
+        @include button($display: inline-flex, $grow:1, $flex: 100%);
+        @include buttonStyle(default);
+        font-weight: var(--font-weight-button);
+        transition: all var(--duration-quick);
+
+        i {
+            order: +1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--size-icon-large);
+            height: var(--size-icon-large);
+            min-height: $size-touch;
+            margin: 0 0 0 $size-root-full;
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        
+            &:before {
+                content: "\f1d8";
+            }
+        }
+    }
+
+    @include btnAlternate;
+}

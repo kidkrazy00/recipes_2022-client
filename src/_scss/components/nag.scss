@@ -1,0 +1,29 @@
+.nag {
+    transform: $depth-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    div {
+        display: grid;
+        gap: $size-root-full;
+        // flex-wrap: wrap;
+        align-items: center;
+        justify-items: center;
+        max-width: var(--size-login);
+        line-height: calc(var(--line-height) * 2);
+        padding: $size-root-full;
+        border-radius: var(--border-radius);
+        // border: 2px solid var(--color-body-secondary);
+        animation: fadeUp var(--duration);
+
+        @include breakpoint(small) {
+            max-width: var(--size-login-small);
+        }
+
+        a {
+            width: 100%;
+        }
+    }
+}

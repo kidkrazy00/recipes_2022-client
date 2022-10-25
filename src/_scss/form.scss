@@ -1,0 +1,119 @@
+// start form elements
+.styleguide {
+	
+	form {
+
+	    .element {
+	        display: grid;
+	        grid-gap: $size-root-quarter;
+	        grid-template: 1fr / 1fr 1fr;
+	        margin: 0 0 $size-root-full 0;
+	    }
+	}
+
+	label {
+
+	}
+
+	fieldset {
+		flex: 1 0 100%;
+	    padding: $size-root-full;
+	    border: 1px solid var(--color-border-all);
+	}
+
+	select {
+	    @include select(1, 0, 100%);
+	    @include selectStyle();
+	    // @include svgBackground($mapUi, arrow-down6, $color-icon-primary, $position: calc(100% - #{$size-root-quarter}) 50%);
+	}
+
+	.checkbox {
+	    @include radioCheck(checkbox);
+	    @include checkStyle();
+	}
+
+	.radio {
+	    @include radioCheck(radio);
+	    @include radioStyle();
+	}
+
+	input[type='email'],
+	input[type='number'],
+	input[type='password'],
+	input[type='search'],
+	input[type='tel'],
+	input[type='text'],
+	input[type='url'] {
+
+	    &:focus::placeholder {
+	        transition: var(--duration);
+	    }
+	}
+
+	input[type='email'] {
+
+	    &::placeholder {
+	        // @include svgBackground($mapUi, mail, $color-icon-primary, $position: 100% 50%);
+	    }
+
+	    &:focus::placeholder {
+	        // @include svgBackground($mapUi, mail, tint($color-icon-primary, 50%), $position: 100% 50%);
+	    }
+	}
+
+	input[type='password'] {
+
+	    &::placeholder {
+	        // @include svgBackground($mapUi, key, $color-icon-primary, $position: 100% 50%);
+	    }
+
+	    &:focus::placeholder {
+	        // @include svgBackground($mapUi, key, tint($color-icon-primary, 50%), $position: 100% 50%);
+	    }
+	}
+
+	input[type='search'] {
+	    // @include prefix(appearance, none ,webkit);
+
+	    &::placeholder {
+	        // @include svgBackground($mapUi, search, $color-icon-primary, $position: 100% 50%);
+	    }
+
+	    &:focus::placeholder {
+	        // @include svgBackground($mapUi, search, tint($color-icon-primary, 50%), $position: 100% 50%);
+	    }
+	}
+
+	input[type='tel'] {
+
+	    &::placeholder {
+	        // @include svgBackground($mapUi, mobile, $color-icon-primary, $position: 100% 50%);
+	    }
+
+	    &:focus::placeholder {
+	        // @include svgBackground($mapUi, mobile, tint($color-icon-primary, 50%), $position: 100% 50%);
+	    }
+	}
+
+	input[type='url'] {
+
+	    &::placeholder {
+	        // @include svgBackground($mapUi, link, $color-icon-primary, $position: 100% 50%);
+	    }
+
+	    &:focus::placeholder {
+	        // @include svgBackground($mapUi, link, tint($color-icon-primary, 50%), $position: 100% 50%);
+	    }
+	}
+
+	textarea {
+	}
+
+	input[type='button'],
+	input[type='submit'],
+	input[type='reset'],
+	button {
+	    @include button();
+	    @include buttonStyle();
+	}
+}

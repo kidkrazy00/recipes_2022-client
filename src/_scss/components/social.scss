@@ -1,0 +1,35 @@
+.social {
+    display: grid;
+    grid-template: 1fr / repeat(auto-fit, var(--size-icon-large));
+    grid-gap: $size-root-full;
+    align-items: center;
+
+    @include breakpoint(small) {
+        justify-content: center;
+    }
+
+    & > li {
+        height: var(--size-icon-large);
+
+        & > a,
+        & > span {
+            display: flex;
+            color: var(--color-link);
+            height: var(--size-icon-large);
+            width: var(--size-icon-large);
+            font-size: 0;
+            cursor: pointer;
+            
+            i {
+                width: var(--size-icon-large);
+                height: var(--size-icon-large);
+            }
+            
+            i:before {
+                width: var(--size-icon-large);
+                height: var(--size-icon-large);
+                font-size: var(--size-icon-large);
+            }
+        }
+    }
+}

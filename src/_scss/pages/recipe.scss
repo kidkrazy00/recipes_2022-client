@@ -1,0 +1,76 @@
+.recipe {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    max-width: var(--size-recipe);
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-ui) ;
+    background-color: var(--color-card-background);
+    animation: fadeUp var(--duration);
+
+    @include breakpoint(small) {
+        border-radius: initial;
+    }
+
+    *:not(
+        source,
+        img,
+        li,
+        .controls,
+        button,
+        i
+        ) {
+        margin: 0 $size-root-full;
+    }
+
+    &__media {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: var(--size-recipe-media);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        background-color: var(--color-card-background);
+        background: radial-gradient(ellipse at center, rgba(171,216,241,1) 0%,rgba(41,137,216,1) 100%);
+        box-shadow: var(--box-shadow-recipe-media);
+        filter: hue-rotate(260deg);
+
+        & source {
+            margin: 0;
+        }
+        
+        & img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            mix-blend-mode: luminosity;
+        }
+    }
+
+    h1 {
+        padding: $size-root-full 0 0 0 ;
+    }
+
+    h4 {
+        text-transform: capitalize;
+        border-bottom: 1px solid rgba(130, 130, 130, .5);
+        box-shadow: 0 2px 2px -0.125rem rgba(0, 0, 0, 1);
+    }
+
+    p {
+        white-space: pre-wrap;
+    }
+
+    .controls {
+        position: sticky;
+        display: flex;
+        justify-content: center;
+        margin: 0 $size-root-full $size-root-full;
+        bottom: $size-root-full;
+        border-radius: var(--border-radius);
+        background-color: var(--color-body);
+        box-shadow: var(--box-shadow);
+        backdrop-filter: var(--backdrop-filter-ui);
+    }
+}

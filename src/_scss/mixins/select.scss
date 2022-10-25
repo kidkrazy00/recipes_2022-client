@@ -1,0 +1,41 @@
+// @include select();
+// @include selectStyle();
+
+@mixin select ($grow: 1, $shrink: 1, $flex: 100%, $height:$size-touch) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: $grow $shrink $flex;
+    height: $height;
+    font-size: $size-root-full;
+    padding: $size-root-half calc(#{$size-root-full} * 2) $size-root-half $size-root-half;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    & > option > span {
+        justify-content: left;
+    }
+}
+
+// style
+@mixin selectStyle ($type:default) {
+    // disable moz, safari & ie defaults
+    appearance: none;
+
+    @if $type == default {
+        // @include svgBackground($mapUi, arrow-down5, var(--color-button-bg), $position: 100% 50%);
+        color: var(--color-select-fg);
+        font-family: var(--font-family-select);
+        font-weight: var(--font-weight-select);
+        background-color: var(--color-select-bg);
+        border: 1px solid var(--color-select-border);
+        border-radius: var(--border-radius-select);
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

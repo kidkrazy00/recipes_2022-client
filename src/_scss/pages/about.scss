@@ -1,0 +1,8 @@
+.about {
+    display: grid;
+    gap: 1.25rem;
+    max-width: var(--size-recipe);
+    margin: 0 auto;
+    padding: $size-root-full;
+    animation: fadeUp var(--duration);
+}

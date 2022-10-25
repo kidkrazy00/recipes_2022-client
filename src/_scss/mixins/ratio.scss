@@ -1,0 +1,59 @@
+/// Aspect ratio box.
+///
+/// @author Ben Marshall
+/// @link https://www.benmarshall.me/responsive-iframes
+///
+/// @param {int} $width - Width in pixels.
+/// @param {int} $height - Height in pixels.
+///
+/// @example scss - Aspect ratio box mixin
+///   .iframe-container {
+///     @include aspectRatioBox(834, 469);
+///   }
+///
+/// @output CSS aspect ratio box.
+///   .iframe-container {
+///     overflow: hidden;
+///     padding-top: 56.25%;
+///     position: relative;
+///     top: 0;
+///     width: 100%;
+///   }
+///
+///   .iframe-container iframe {
+///     border: 0;
+///     height: 100%;
+///     left: 0;
+///     position: absolute;
+///     top: 0;
+///     width: 100%;
+///   }
+
+@mixin aspectRatioBox($width, $height) {
+  position: relative;
+  padding-top: percentage($height / $width);
+  overflow: hidden;
+
+  iframe,
+  video {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    border: 0;
+  }
+
+  // img {
+  //   position: absolute;
+  //   width: 100%;
+  //   height: auto;
+  //   top: 0;
+  //   margin: 0 auto 0 auto;
+  // }
+
+
+  iframe {
+    min-height: 100%;
+  }
+}

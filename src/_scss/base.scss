@@ -1,0 +1,348 @@
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: subpixel-antialiased !important;
+
+    &:after, &:before {
+        box-sizing: border-box;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    font-size: var(--size-font);
+    line-height: var(--line-height);
+    background-color: rgba(59, 49, 52, 1);
+    color: var(--color-content);
+}
+
+body:before {
+    transform: $depth-background;
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: url('#{$pathToImages}stock/pexels-monicore-1087897.jpg') no-repeat;
+    background-size: cover;
+    background-position: 0% 50%;
+    filter: brightness(0.5);
+    box-shadow: inset 0px 0px 10rem -1rem black;
+
+    @include breakpoint(small) {
+        background-color: rgba(59, 49, 52, 1);
+        background: url('#{$pathToImages}stock/pexels-monicore-1087897-small.jpg') no-repeat;
+        background-size: cover;
+    }
+}
+
+:focus {
+    outline: none;
+    // outline: 1px dashed red;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(---font-family-heading);
+    line-height: calc(var(--line-height) * 1.125);
+    
+    @include breakpoint(small) {
+        line-height: calc(var(--line-height) * 1.25);
+    }
+}
+
+h1 {
+    color: var(--color-heading);
+    font-size: calc(var(--size-font) * 2.25);
+    text-shadow: var(--text-shadow);
+
+    @include breakpoint(small) {
+        font-size: calc(var(--size-font) * 2);
+    }
+}
+
+h2 {
+    color: var(--color-heading);
+    font-size: calc(var(--size-font) * 2);
+
+    @include breakpoint(small) {
+        font-size: calc(var(--size-font) * 1.75);
+    }
+}
+
+h3 {
+    color: var(--color-heading-sub);
+    font-size: calc(var(--size-font) * 1.75);
+
+    @include breakpoint(small) {
+        font-size: calc(var(--size-font) * 1.5);
+    }
+}
+
+h4 {
+    color: var(--color-heading-sub);
+    font-size: calc(var(--size-font) * 1.5);
+
+    @include breakpoint(small) {
+        font-size: calc(var(--size-font) * 1.25);
+    }
+}
+
+h5 {
+    color: var(--color-heading-sub);
+    font-size: calc(var(--size-font) * 1.25);
+
+    @include breakpoint(small) {
+        font-size: calc(var(--size-font) * 1);
+    }
+}
+
+p {
+    color: var(--color-content);
+    font-family: var(--font-family);
+    font-size: var(--size-font);
+    line-height: calc(var(--line-height));
+}
+
+details {
+    color: var(--color-content);
+    font-family: var(--font-family);
+    font-size: var(--size-font);
+
+    &[open] summary > span:before {
+        content: "\f0d7";
+    }
+    
+    summary {
+        display: flex; // stops chrome showing the markers even though the display on them is set
+        justify-content: space-between;
+        justify-items: space-between;
+
+        & > span {
+            flex: 1;
+            display: flex; // anything aside from inline related styles causes desktop safari to bug
+            flex-direction: row-reverse;
+            align-items: center;
+            min-height: $size-touch;
+            // padding: $size-root-half 0;
+            color: var(--color-link);
+            font-family: var(---font-family-heading);
+            font-size: calc(var(--size-font) * 1.25);
+            cursor: pointer;
+
+            &:before {
+                content: "\f0da";
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                justify-content: center;
+                width: $size-root-full;
+                height: $size-touch;
+                margin: 0 $size-root-half 0 auto;
+                font-family: 'Font Awesome 5 Free';
+                font-size: $size-root-full;
+            }
+        }
+
+        &::marker {
+            display: none;
+        }
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+}
+
+b, strong {
+    font-weight: var(--font-weight-heavy);
+}
+
+em {
+    font-style: italic;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: all var(--duration-quick);
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: var(--color-link-h);
+    }
+}
+
+small {
+    font-size: var(--size-font-small);
+}
+
+sub {
+    font-size: var(--size-font-small);
+    vertical-align: sub;
+}
+
+sup {
+    font-size: var(--size-font-small);
+    vertical-align: super;
+}
+
+cite {
+    font-style: italic;
+}
+
+time {
+    font-weight: var(--font-weight-heavy);
+}
+
+hr {
+    display: flex;
+    flex: 1 0 100%;
+    align-self: center;
+    border: var(--size-hr) solid var(--color-hr);
+    margin: 0;
+}
+
+ol {
+    list-style: decimal;
+    list-style-position: inside;
+}
+
+ul {
+    list-style: none;
+    list-style-position: inside;
+
+    li > ul {
+        padding: $size-root-half;
+    }
+}
+
+address {
+    color: var(--color-content);
+    font-family: var(--font-family);
+    font-size: var(--size-font);
+    line-height: var(--line-height);
+    white-space: pre;
+}
+
+blockquote {
+    quotes: '\201C' '\201D' '\2018' '\2019';
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: $size-root-full;
+    padding: $size-root-full;
+    background: var(--color-blockquote-bg);
+    border-left: $size-root-half solid var(--color-border-all);
+
+    &:before,
+    &:after {
+        position: absolute;
+        color: var(--color-blockquote-icon);
+        font-size: calc(var(--size-font) * 4);
+        line-height: $size-root-full * 4;
+        align-items: baseline;
+    }
+
+    &:before {
+        content: open-quote;
+        top: $size-root-full;
+        left: $size-root-full;
+    }
+
+    // &:after {
+    //     content: close-quote;
+    //     right: $size-root-full;
+    //     bottom: 0;
+    // }
+
+    & p {
+        color: var(--color-blockquote-fg);
+        flex: 0 0 95%;
+        margin: 0 $size-root-full * 2 $size-root-half $size-root-full * 2;
+    }
+
+    & cite {
+        color: var(--color-blockquote-cite);
+        flex: 0 0 95%;
+        margin: 0 $size-root-full * 2 $size-root-half $size-root-full * 2;
+    }
+}
+
+table {
+    display: grid;
+    grid-template-areas: 'thead' 'tbody' 'tfoot';
+    flex: 1 1 100%;
+    align-content: flex-start;
+
+    thead {
+        grid-area: thead;
+        padding: $size-root-quarter;
+        color: var(--color-table-head-fg);
+        background: var(--color-table-head);
+    }
+
+    tfoot {
+        grid-area: tfoot;
+        padding: $size-root-quarter;
+        color: var(--color-table-foot-fg);
+        background: var(--color-table-foot);
+    }
+
+    tbody {
+        grid-area: tbody;
+        flex: 1 0 100%;
+        color: var(--color-table-fg);
+        // background: var(--color-table-bg);
+    }
+
+    tr {
+        display: flex;
+        justify-content: space-around;
+        flex: 1 0 100%;
+
+        &:nth-child(even) {
+            border-left: none;
+            border-right: none;
+            // background: var(--color-table-row-alt);
+        }
+    }
+
+    td {
+        flex: 1;
+        padding: $size-root-quarter;
+    }
+}
+
+
+img {
+    max-width: 100%;
+}
+
+video {
+    object-fit: cover;
+    background-color: var(--color-body);
+}
+
+.error {
+    color: var(--color-error);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-track);
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar {
+    width: var(--size-width-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-thumb);
+    border-radius: var(--border-radius);
+}

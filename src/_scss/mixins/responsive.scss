@@ -1,0 +1,15 @@
+@mixin breakpoint($point) {
+    @if $point == null {
+    }
+    // @if $point == tabletLandscape {
+    //     @media screen and (min-width: 1024px) and (max-width: 1200px) { @content; }
+    // }
+    // @else if $point == tablet {
+    //     @media screen and (min-width: 601px) and (max-width: 1023px) { @content; }
+    // }
+    @else if $point == small {
+    	// iphone se 312px
+        // @media screen and (min-width: 312px) and (max-width: 600px)  { @content; }
+        @media screen and (min-width: 312px) and (max-width: 601px)  { @content; }
+    }
+}

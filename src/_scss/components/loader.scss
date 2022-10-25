@@ -1,0 +1,11 @@
+.loading {
+    transition: all 3s;
+
+    &--start {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background-color: blue;
+        animation: fadeOut 3s;
+    }
+}

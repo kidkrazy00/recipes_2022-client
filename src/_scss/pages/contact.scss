@@ -1,0 +1,64 @@
+.contact {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: $size-root-full;
+    animation: fadeUp var(--duration);
+
+    form {
+        display: grid;
+        gap: $size-root-full;
+        margin: 0 auto;
+        padding: $size-root-full;
+        border-radius: var(--border-radius);
+
+        @include breakpoint(small) {
+            width: 90vw;
+        }
+
+        .element {
+            display: grid;
+            grid-gap: $size-root-quarter;
+            grid-template: 1fr / 1fr;
+        }
+
+        button {
+            margin: 0 0 0 auto;
+        }
+    }
+
+    & .response {
+        text-align: center;
+    }
+
+    label {
+        color: var(--color-label);
+    }
+
+    input[type='email'],
+    input[type='number'],
+    input[type='password'],
+    input[type='search'],
+    input[type='tel'],
+    input[type='text'],
+    input[type='url'],
+    textarea {
+        color: var(--color-input-fg);
+        font-family: var(--font-family-input);
+        font-weight: var(--font-weight-input);
+        background-color: var(--color-input-bg);
+        padding: $size-root-full;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-input-border);
+
+        &:focus::placeholder {
+            color: var(--color-placeholder);
+            transition: var(--duration);
+        }
+    }
+
+    textarea {
+        width: 100%;;
+        resize: none;
+    }
+}

@@ -1,0 +1,265 @@
+$size-carousel-height: 90vh;
+
+.carousel {
+
+    &:hover {
+    
+        .slide {
+    
+            .legend {
+                opacity: 1;
+            }
+        }
+    }
+    
+    &.carousel-slider {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+    }
+    
+    &-root {
+        outline: none;
+    }
+
+    &-status {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        color: #fff;
+        font-size: 10px;
+        text-shadow: var(--text-shadow);
+    }
+    
+    .slider {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        
+        &.animated {
+            transition: all 0.35s ease-in-out;
+        }
+        
+        &-wrapper {
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+            transition: height 0.15s ease-in;
+            
+            &.axis-horizontal {
+                
+                .slider {
+                    display: flex;
+                
+                    .slide {
+                        flex-direction: column;
+                        flex-flow: column;
+                    }
+                }
+            }
+            
+            &.axis-vertical {
+                display: flex;
+            
+                .slider {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+    
+    .slide {
+        position: relative;
+        display: flex;
+        min-width: 100%;
+        height: calc(100vh - var(--size-header) - var(--size-footer));    
+        margin: 0;
+        // text-align: center;
+        background: var(--color-hero-background);
+        
+        img {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            object-fit: scale-down;
+            filter: blur(2px) opacity(.5);
+
+            @include breakpoint(small) {
+                object-fit: cover;
+            }
+        }
+    
+        iframe {
+            display: inline-block;
+            width: calc(100% - 80px);
+            margin: 0 40px 40px;
+            border: 0;
+        }
+    
+        .legend {
+            position: absolute;
+            width: 90%;
+            bottom: 40px;
+            left: 50%;
+            margin-left: -45%;
+            padding: 10px;
+            border-radius: 10px;
+            background: var(--color-hero-background);
+            color: var(--color-hero-content);
+            font-size: 12px;
+            text-align: center;
+            opacity: 0.25;
+            transition: all 0.5s ease-in-out;
+            transition: opacity 0.35s ease-in-out;
+        }
+    }
+
+    .slide--message {
+        z-index: 1;
+        position: absolute;
+        display: grid;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        color: var(--color-hero-content);
+        opacity: 0;
+        transition: all var(--duration-quick);
+    }
+    
+    .slide > div,
+    .selected > div {
+        display: contents;
+    }
+
+    .selected > div .slide--message {
+        opacity: 1;
+        animation: fadeUp 1.5s;
+    }
+    
+    .control-arrow {
+        z-index: 2;
+        position: absolute;
+        display: flex;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        min-width: var(--size-icon-xlarge);
+        width: var(--size-icon-xlarge);
+        height: var(--size-icon-xlarge);
+        top: calc(50% - var(--size-icon-xlarge));
+        color: var(--color-link);
+        font-family: 'Font Awesome 5 Free';
+        font-size: $size-root-2x;
+        opacity: 0.3;
+        cursor: pointer;
+        transition: all var(--duration);
+
+        //clear defaults
+        background-color: transparent;
+        outline: 0;
+        border: none;
+
+        &:hover,
+        &.selected {
+            opacity: 1;
+            color: var(--color-link-h);
+        }
+
+        &:before {
+            // text-shadow: var(--text-shadow);
+        }
+    }
+    
+    .control-disabled.control-arrow {
+        display: none;
+        opacity: 0;
+        cursor: inherit;
+    }
+    
+    .control-prev.control-arrow {
+        left: 1.5rem;
+
+        &:before {
+            content: "\f053";
+        }
+    }
+    
+    .control-next.control-arrow {
+        right: 1.5rem;
+
+        &:before {
+            content: "\f054";
+        }
+    }
+    
+    
+    .thumbs {
+        position: relative;
+        list-style: none;
+        white-space: nowrap;
+        cursor: pointer;
+        transform: translate3d(0, 0, 0);
+        transition: all 0.15s ease-in;
+
+        &-wrapper {
+            margin: $size-root-full;
+            overflow: hidden;
+        }
+    }
+
+    .thumb {
+        display: inline-block;
+        height: auto;
+        margin-right: 6px;
+        padding: 2px;
+        white-space: nowrap;
+        border: 3px solid var(--color-border-all);
+        overflow: hidden;
+        opacity: .3;
+        transition: all 0.15s ease-in;
+        
+        &.selected,
+        &:hover,
+        &:focus {
+            opacity: 1;
+            border: 3px solid var(--color-border-all);
+            outline: none;
+        }
+        
+        img {
+            vertical-align: top;
+            width: 100%;
+        }
+    }
+
+    .control-dots {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        bottom: 0;
+        
+        .dot {
+            width: var(--size-icon-small);
+            height: var(--size-icon-small);
+            margin: $size-root-half;
+            background: var(--color-icon);
+            border-radius: 50%;
+            box-shadow: var(--box-shadow);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: opacity var(--duration);
+            
+            &:hover,
+            &.selected {
+                opacity: 1;
+                background: var(--color-icon-h);
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.nav {
+    display: flex;
+    gap: $size-root-full;
+    align-content: center;
+    margin: 0 0 0 auto;
+    transition: all var(--duration);
+
+    @include breakpoint(small) {
+        z-index: $z-negative;
+        position: absolute;
+        display: grid;
+        justify-items: center;
+        width: 100%;
+        min-height: 100vh;
+        top: -1px;
+        right: 0;
+        left: 0px;
+        line-height: calc(var(--line-height) * 2);
+        background: var(--color-nav);
+        backdrop-filter: var(--backdrop-filter);
+        animation: fadeLeft var(--duration);
+        overscroll-behavior: contain;
+    }
+
+    & > li {
+        display: flex;
+        
+        @include breakpoint(small) {
+            width: 50vw;
+            justify-content: space-evenly;
+        }
+        
+        & > a {
+            min-width: 110px;
+            @include button($display: inline-flex, $grow:0, $flex: auto, $padding: 0);
+            @include buttonStyle(text);
+            font-weight: var(--font-weight-button);
+            border-bottom: 2px solid transparent;
+
+            &.btn--active,
+            &:focus {
+                border-bottom: 2px solid var(--color-link);
+
+                @include breakpoint(small) {
+                    border-bottom: none;
+                }
+
+            }
+        }
+    }
+
+    .social {
+        grid-template: 1fr / repeat(3, var(--size-icon-large));
+        min-width: 50vw;
+        padding: $size-root-full;
+    }
+}

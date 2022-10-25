@@ -1,0 +1,130 @@
+.gallery {
+    z-index: 3;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 10vh 10vw;
+    top: 0;
+    left: 0;
+    background-color: var(--color-gallery-overlay);
+    backdrop-filter: var(--backdrop-filter);
+    animation: fadeIn var(--duration-quick);
+
+    &--media {
+        position: absolute;
+        display: block;
+        align-self: center;
+        justify-self: center;
+        max-width: var(--size-galery-media-width);
+        width: auto;
+        max-height: var(--size-galery-media-height);
+        height: auto;
+        top: auto;
+        left: auto;
+        background-color: var(--color-galery-background);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+
+        img {
+            display: flex;
+            max-width: 100%;
+            margin: 0 auto;
+
+            @include breakpoint(small) {
+                min-width: 100%;
+            }
+        }
+    }
+
+    .controls {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        
+        &--next,
+        &--prev,
+        &--close {
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0;
+            cursor: pointer;
+
+            i {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: var(--size-icon-xlarge);
+                width: var(--size-icon-xlarge);
+                height: var(--size-icon-xlarge);
+                color: var(--color-link);
+                font-family: 'Font Awesome 5 Free';
+                font-size: $size-root-2x;
+
+                &:before {
+                    // text-shadow: var(--text-shadow);
+                }
+            }
+        }
+
+        &--next,
+        &--prev {
+            position: absolute;
+            width: 10vw;
+            height: 100%;
+            // margin-top: calc(40vh - (var(--size-icon-xlarge) / 2));
+        }
+
+        &--next {
+            top: 0;
+            right: 0;
+            
+            i {
+                &:before {
+                    content: "\f054";
+                }
+            }
+        }
+        &--prev {
+            top: 0;
+            left: 0;
+
+            i {
+                &:before {
+                    content: "\f053";
+                }
+            }
+        }
+
+
+        &--close {
+            z-index: -1; //put behind images & content
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+
+            i {
+                position: absolute;
+                top: 1.5rem;
+                right: $size-root-full;
+                width: var(--size-icon-xlarge);
+                height: var(--size-icon-xlarge);
+
+                &:before {
+                    content: "\f00d";
+                }
+            }
+        }
+    }
+}

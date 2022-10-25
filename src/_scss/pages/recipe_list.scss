@@ -1,0 +1,148 @@
+.recipe__list {
+    // max-width: var(--size-recipe);
+    line-height: calc(var(--line-height) * 2);
+    margin: 0 auto;
+    animation: fadeUp var(--duration);
+
+    @include breakpoint(small) {
+        padding: $size-root-full;
+    }
+
+    h1 {
+        z-index: 1;
+        position: sticky;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: var(--size-header);
+        backdrop-filter: blur(5px);
+    }
+    
+    ul  {
+        display: grid;
+        grid-template: 1fr / repeat(2, 1fr);
+        gap: $size-root-full;
+        border-radius: var(--border-radius);
+
+        @include breakpoint(small) {
+            grid-template: 1fr/1fr;
+        }
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    .card {
+        padding: $size-root-full;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow-ui);
+        background-color: var(--color-card-background);
+
+        &__title {
+            color: var(--color-card-title);
+            font-size: var(--size-card-title);
+        }
+
+        &__author {
+            color: var(--color-card-title);
+        }
+
+        &__date {
+            font-size: var(--size-font-small);
+            
+            @include breakpoint(small) {
+                grid-column: 2;
+                grid-row: 2;
+
+            }
+        }
+
+        $icons: cake, pie, cookie, poultry, beef, pork, fish, salad, soup, rice, bread, sandwiche, pasta, sauce, spices;
+        @each $icon in $icons {
+            &__icon--#{$icon} {
+                flex: 0 0 var(--size-card-icon);
+                // background-color: var(--color-link-h);
+                // mask-image: url(#{$pathToIcons}icons_#{$icon}.svg);
+                // background: radial-gradient(ellipse at bottom, rgba(0, 0, 0, .55) 0, rgba(0, 0, 0, 0) 80%);
+            }
+        }
+
+        a {
+            display: flex;
+            gap: $size-root-half;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            
+            &:last-child() {
+                margin-left: auto;
+            }
+
+            img {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: var(--size-card-icon);
+                height: var(--size-card-icon);
+                border-radius: var(--border-radius-full);
+                background: rgba(50, 50, 50, .8);
+                border: 4px solid rgba(0, 0, 0, .1);
+                transition: all var(--duration-quick);
+                overflow: hidden;
+            }
+            
+            &:hover,
+            &:focus {
+
+                img {
+                    border: 4px solid var(--color-link-h);
+                }
+            }
+        }
+    }
+
+    &__filter {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+
+        i {
+            position: absolute;
+            align-self: center;
+            right: 0;
+            width: var(--size-icon-large);
+            height: var(--size-icon-large);
+        }
+    
+        i:before {
+            content: '\f0b0';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--size-icon-large);
+            height: var(--size-icon-large);
+            color: var(--color-link);
+            font-family: 'Font Awesome 5 Free';
+            font-size: $size-root-full;
+        }
+        
+        select {
+            z-index: 1;
+            appearance: none;
+            // direction: rtl; // required for right alignment on safari
+            display: flex;
+            width: 100%;
+            height: $size-touch;
+            margin: 0;
+            padding: 0 var(--size-icon-large) 0 0;
+            color: var(--color-link);
+            border: none;
+            background-color: transparent;
+            font-size: $size-root-full;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+    }
+}

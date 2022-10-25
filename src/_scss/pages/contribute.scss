@@ -1,0 +1,122 @@
+.contribute {
+    display: grid;
+    gap: 1.25rem;
+    max-width: var(--size-recipe);
+    margin: 0 auto;
+    padding: $size-root-full;
+    animation: fadeUp var(--duration);
+
+    form {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(2, 1fr);
+        
+        fieldset {
+            grid-column: 1/-1;
+            display: grid;
+            gap: 1.25rem;
+            width: 100%;
+            padding: 1rem;
+            line-height: calc(var(--line-height)*2);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-ui);
+            background-color: var(--color-card-background);
+            
+        }
+
+        .element {
+            display: grid;
+            grid-template: repeat(2, min-content)/1fr;
+            grid-gap: $size-root-quarter;
+        }
+
+        .select__category {
+            position: relative;
+            display: flex;
+            flex-direction: row-reverse;
+            text-transform: capitalize;
+
+            select {
+                @include select(1, 0, 100%);
+                @include selectStyle();
+            }
+
+            i {
+                position: absolute;
+                align-self: center;
+                right: 0;
+                width: var(--size-icon-large);
+                height: var(--size-icon-large);
+                pointer-events: none;
+            }
+        
+            i:before {
+                content: '\f107';
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: var(--size-icon-large);
+                height: var(--size-icon-large);
+                color: var(--color-link);
+                font-family: 'Font Awesome 5 Free';
+                font-size: $size-root-full;
+            }
+        }
+
+        input[type='text'],
+        input[type='email'],
+        textarea {
+            color: var(--color-input-fg);
+            font-family: var(--font-family-input);
+            font-weight: var(--font-weight-input);
+            background-color: var(--color-input-bg);
+            padding: $size-root-full;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-input-border);
+
+            &::placeholder {
+                color: var(--color-placeholder);
+            }
+            
+            &:focus {
+                outline: 2px solid var(--color-accent);
+                // box-shadow: var(--box-shadow-inset);
+                transition: var(--duration-quick);
+            }
+        }
+        
+        .element,
+        header,
+        h3,
+        h4,
+        hr,
+        p,
+        input {
+            white-space: pre-wrap;
+            grid-column: 1/-1;
+            animation: fadeIn var(--duration-quick);
+        }
+
+        h4 {
+            text-transform: capitalize;
+            border-bottom: 1px solid rgba(130, 130, 130, .5);
+            box-shadow: 0 2px 2px -0.125rem rgba(0, 0, 0, 1);
+        }
+        
+        .btn__back {
+            justify-self: flex-start;
+        }
+
+        .btn__next{
+            justify-self: flex-end;
+            
+            &:last-of-type {
+                grid-column: 2;
+            }
+        }
+        
+        .btn__send {
+            justify-self: flex-end;
+        }
+    }
+}

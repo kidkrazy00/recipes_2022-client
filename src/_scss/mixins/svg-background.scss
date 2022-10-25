@@ -1,0 +1,34 @@
+// requires icon map variable
+// @include svgBackground($iconmap:$mapUi, $path, $fill-color, $strokeColor, stroke-width, $repeat: no-repeat, $position: 50% 50%);
+
+@mixin svgBackground(
+    $iconmap: $mapCustom,
+    $path: null,
+    $fill-color:null,
+    $strokeColor: null,
+    $stroke-width: null,
+    $repeat: no-repeat,
+    $position: 50% 50%
+    ) {
+        $value: null;
+        $viewbox: null;
+        // $iconmap corresponds to available maps and applies appropriate viewbox dimensions and maping
+        // @if $iconmap == $mapUi {
+        //     $viewbox: '0 0 20 20';
+        //     $value: map-get($mapUi, $path);
+        // }
+
+        @if $iconmap == $mapCustom {
+            $viewbox: '0 0 40 40';
+            $value: map-get($mapCustom, $path);
+        }
+
+        $pre:   '<svg xmlns="http://www.w3.org/2000/svg"';
+        $post:  '/></svg>';
+        
+        background: url('#{$pre} viewBox="#{$viewbox}"> <path #{$value} fill="#{$fill-color}" stroke="#{$strokeColor}" stroke-width="#{$stroke-width}" #{$post}');
+        background-repeat: $repeat;
+        background-position: $position;
+         
+        // @warn "Unknown `#{$path}` in $iconmap-ui";
+}

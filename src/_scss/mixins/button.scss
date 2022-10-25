@@ -1,0 +1,96 @@
+@mixin button ($display: flex, $grow: 1, $shrink: 1, $flex: 100%, $justify: center, $height: $size-touch, $padding: $size-root-quarter $size-root-half) {
+    display: $display;
+    // display: inline-block; // safari hack
+    align-items: center;
+    justify-content: $justify;
+    flex: $grow $shrink $flex;
+    width: $flex;
+    height: $height;
+    padding: $padding;
+    // disable moz, safari & ie defaults - auto prefixer will supply browser support
+    appearance: none;
+    cursor: pointer;
+}
+
+// style
+@mixin buttonStyle ($type:default) {
+    @if $type == default {
+        color: var(--color-button-fg);
+        font-size: var(--font-size-button);
+        font-family: var(--font-family-button);
+        font-weight: var(--font-weight-button);
+        background-color: var(--color-button-bg);
+        border: var(--size-button-border) solid var(--color-button-border);
+        border-radius: var(--border-radius-button);
+        transition: all var(--duration-button);
+
+        &:hover,
+        &:focus,
+        &:hover i:before,
+        &:focus i:before {
+            color: var(--color-button-fg-h);
+            background-color: var(--color-button-bg-h);
+            border: var(--size-button-border-h) solid var(--color-button-border-h);
+            border-radius: var(--border-radius-button-h);
+        }
+    }
+
+    @if $type == text {
+        color: var(--color-button-bg);
+        font-size: var(--font-size-button);
+        font-family: var(--font-family-button);
+        font-weight: var(--font-weight-button);
+        background-color: transparent;
+        border: none;
+        transition: all var(--duration-button);
+
+        &:hover,
+        &:focus,
+        &:hover i:before,
+        &:focus i:before  {
+            color: var(--color-button-bg-h);
+        }
+    }
+
+    @if $type == image {
+        color: var(--color-button-fg);
+        font-size: var(--font-size-button);
+        font-family: var(--font-family-button);
+        font-weight: var(--font-weight-button);
+        background-color: var(--color-button-bg);
+        border: var(--size-button-border) solid var(--color-button-border);
+        border-radius: var(--border-radius-button);
+        background-repeat: no-repeat;
+        background-size: var(--size-icon-large);
+        transition: all var(--duration-button);
+
+        &:hover,
+        &:focus {
+            color: var(--color-button-fg-h);
+            background-color: var(--color-button-bg-h);
+            border: var(--size-button-border-h) solid var(--color-button-border-h);
+            border-radius: var(--border-radius-button-h);
+        }
+    }
+
+    @if $type == ghost {
+        color: var(--color-button-bg);
+        font-size: var(--font-size-button);
+        font-family: var(--font-family-button);
+        font-weight: var(--font-weight-button);
+        background-color: transparent;
+        border: var(--size-button-border) solid var(--color-button-border);
+        border-radius: var(--border-radius-button);
+        transition: all var(--duration-button);
+
+        &:hover,
+        &:focus,
+        &:hover i:before,
+        &:focus i:before {
+            color: var(--color-button-bg-h);
+            background-color: transparent;
+            border: var(--size-button-border-h) solid var(--color-button-border-h);
+            border-radius: var(--border-radius-button-h);
+        }
+    }
+}

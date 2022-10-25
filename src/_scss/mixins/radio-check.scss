@@ -1,0 +1,119 @@
+// useage
+// @include radioCheck($type:null, $grow: 1, $shrink: 1, $flex: 100%, $height:$size-touch ) 
+
+@mixin radioCheck ($type:null, $grow: 1, $shrink: 1, $flex: 100%, $alignment:baseline ,$height:auto ) { 
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: $alignment;
+    flex: $grow $shrink $flex;
+    height: $height;
+    margin: 0;
+    padding: 0;
+
+    & > input[type='#{$type}'] {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        appearance: none; // ios & safari  specific
+    }
+
+    @include breakpoint(small) {
+        min-height: $size-touch;
+    }
+
+    label {
+        position: relative;
+        display: flex;
+        align-items: $alignment;
+        padding-left: $size-root-half;
+        cursor: pointer;
+
+        &:before {
+            content: '';
+            position: relative;
+            display: inline-block;
+            top: ($size-root-quarter / 2);
+            left: -$size-root-half;
+            width: $size-root-full;
+            min-width: $size-root-full;
+            height: $size-root-full;
+        }
+
+        &:after {
+            position: absolute;
+            display: inline-block;
+            content: '';
+            width: $size-root-half;
+            height: $size-root-half;
+            top: 0.35rem;
+            left: $size-root-quarter;
+            transition: all .2s;
+        }
+    }
+}
+
+// style
+@mixin checkStyle ($type:default) {
+    
+    @if $type == default {
+        color: var(--color-checkbox-fg);
+        font-size: .8rem;
+        
+        label {
+            color: var(--color-checkbox-fg);
+
+            &:before {
+                background: var(--color-checkbox-bg);
+                border: 2px solid var(--color-checkbox-border);
+                border-radius: var(--border-radius-checkbox);
+            }
+            
+            &:after {
+                background: var(--color-checkbox-check);
+                border-radius: calc(var(--border-radius-checkbox) / 2);
+            }
+        }
+
+        & input[type=checkbox]:checked + label:after {
+            opacity: $alpha-full;
+        }
+
+        & input[type=checkbox]:not(:checked) + label:after {
+            opacity: $alpha-none;
+        }
+    }
+}
+
+@mixin radioStyle ($type:default) {
+    
+    @if $type == default {
+        color: var(--color-checkbox-fg);
+        font-size: .8rem;
+        
+        label {
+            color: var(--color-checkbox-fg);
+
+            &:before {
+                background: var(--color-checkbox-bg);
+                border: 2px solid var(--color-checkbox-border);
+                border-radius: var(--border-radius-checkbox);
+            }
+            
+            &:after {
+                background: var(--color-checkbox-check);
+                border-radius: calc(var(--border-radius-checkbox));
+            }
+        }
+        
+        & input[type=radio]:checked + label:after {
+            opacity: $alpha-full;
+        }
+
+        & input[type=radio]:not(:checked) + label:after {
+            opacity: $alpha-none;
+        }
+    }
+}

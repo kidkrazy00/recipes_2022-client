@@ -1,0 +1,7 @@
+:root{
+    //scrollbars
+        --color-track: rgba(0, 0, 0, .1);
+        --color-thumb: rgba(80, 80, 80, .5);
+        --size-width-track: #{$size-root-quarter};
+        --size-width-scrollbar: #{$size-root-quarter};
+}

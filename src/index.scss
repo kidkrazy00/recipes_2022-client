@@ -1,0 +1,51 @@
+@import "_scss/variables";
+
+//functions
+@import "_scss/functions/ratio";
+@import "_scss/functions/tint-shade";
+
+// mixins
+@import "_scss/mixins/responsive";
+// @import "_scss/mixins/prefix";
+// @import "_scss/map/icons-svg-ui";
+@import "_scss/map/icons-svg";
+@import "_scss/mixins/svg-background";
+@import "_scss/mixins/button";
+@import "_scss/mixins/select";
+@import "_scss/mixins/radio-check";
+@import "_scss/mixins/ratio";
+
+//main files
+@import "_scss/root/root";
+@import "_scss/animation";
+@import "_scss/reset";
+
+//fonts
+@import "assets/fonts/fontawesome-free-5.15.2-web/scss/fontawesome";
+@import "assets/fonts/fontawesome-free-5.15.2-web/scss/solid";
+@import "assets/fonts/fontawesome-free-5.15.2-web/scss/brands";
+
+//base
+@import "_scss/base";
+@import "_scss/app";
+@import "_scss/buttons";
+// @import "_scss/form";
+
+//components
+@import "_scss/components/nav";
+@import "_scss/components/loader";
+@import "_scss/components/carousel";
+@import "_scss/components/header";
+@import "_scss/components/social";
+@import "_scss/components/gallery";
+@import "_scss/components/login";
+@import "_scss/components/nag";
+@import "_scss/components/dashboard";
+
+
+//pages
+@import "_scss/pages/home";
+@import "_scss/pages/about";
+@import "_scss/pages/contribute";
+@import "_scss/pages/recipe_list";
+@import "_scss/pages/recipe";

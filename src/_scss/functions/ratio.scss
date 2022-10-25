@@ -1,0 +1,15 @@
+/// Calculate a ratio.
+///
+/// @author Ben Marshall
+/// @link https://www.benmarshall.me/responsive-iframes
+///
+/// @param {int} $width - Width in pixels.
+/// @param {int} $height - Height in pixels.
+/// @return {int} The calculated ratio percent.
+///
+/// @example scss - Ratio function
+///   ratio(834, 469)
+///   // 56.25
+@function ratio($width, $height) {
+  @return percentage($height / $width);
+}
