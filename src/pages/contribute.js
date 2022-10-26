@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from 'react-router-dom'
 import { dbRecipePost } from "../services/fetchContribute";
 import UserDetails from "../components/UserDetails";
@@ -8,14 +9,21 @@ import Confirmation from "../components/Confirmation";
 // layout
 import Layout from '../layout/Layout'
 
-const Contribute = (props, token) => {
+const Contribute = (props) => {
   const [step, setStep] = useState(1);
   const [postData, setPostData] = useState();
   const [success, setSuccess] = useState(false);
 
+  const {
+    user,
+    isAuthenticated,
+    loginWithRedirect,
+    logout,
+  } = useAuth0();
+
   // form UserDetails
-  const [name, setName] = useState(props.name || "");
-  const [email, setEmail] = useState(props.email || "");
+  const [name, setName] = useState(user.nickname || "");
+  const [email, setEmail] = useState(user.email || "");
   // form RecipeDetails
   const [title, setTitle] = useState(props.title || "");
   const [category, setCategory] = useState(props.category || "");
@@ -99,7 +107,6 @@ const Contribute = (props, token) => {
       <Layout
         pageClass="contribute"
         pageTitle="Awesome!"
-        token={token}
       >
         <article className="response">
           <p>Your contribution is under review and will be added to our collection.</p>
@@ -113,7 +120,6 @@ const Contribute = (props, token) => {
     <Layout
       pageClass="contribute"
       pageTitle="Contribute"
-      token={token}
     >
       <form id="contact-form" className="" onSubmit={onSubmit} method="POST">
         {

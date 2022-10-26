@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from 'react'
+import { useAuth0 } from "@auth0/auth0-react";
 
 import { useMediaQuery } from 'react-responsive'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import Brand from './Brand'
 import Button from './Button';
 
-const Nav = ({ token, siteTitle }) => {
+const Nav = ({ siteTitle }) => {
   const [isVisible, setIsVisible] = useState(false);
-  
-  let navigate = useNavigate();
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem('token');
-    navigate(`/`);
-    window.location.reload();
-  }
 
   const toggleNav = (e) => {
     setIsVisible(!isVisible);
   }
+
+
+  const {
+    user,
+    isAuthenticated,
+    loginWithRedirect,
+    logout,
+  } = useAuth0();
+  
+  const logoutWithRedirect = () =>
+    logout({
+      returnTo: window.location.origin,
+    });
 
   let authenticated = [
     { name: "Contribute", destination: "contribute/" },
@@ -28,10 +33,9 @@ const Nav = ({ token, siteTitle }) => {
 
   let inauthenticated = [
     { name: "About", destination: "about/" },
-    { name: "Login", destination: "" },
   ]
 
-  const links = (token ? authenticated : inauthenticated)
+  const links = (isAuthenticated ? authenticated : inauthenticated)
 
   const navLinks = links.map((item, i) =>
     <li key={i}>
@@ -45,15 +49,28 @@ const Nav = ({ token, siteTitle }) => {
     </li>
   )
 
+  const LogIn = (
+    <li>
+      <Button
+        cClass="btn__submit"
+        buttonType='button'
+        title="Login"
+        name="Login"
+        icon="true"
+        click={() => loginWithRedirect({})}
+      />
+    </li>
+  )
+
   const LogOut = (
     <li>
       <Button
         cClass="btn__logout"
-        buttonType='anchor'
+        buttonType='button'
         title="Logout"
         name="Logout"
         icon="true"
-        click={(e) => handleLogout(e)}
+        click={() => logoutWithRedirect()}
       />
     </li>
   )
@@ -83,14 +100,14 @@ const Nav = ({ token, siteTitle }) => {
   return (
     <>
       <Default>
-        {token ? Logo : ''}
+        {isAuthenticated ? Logo : ''}
         <nav className="nav">
           {navLinks}
-          {token ? LogOut : ''}
+          {isAuthenticated ? LogOut : LogIn}
         </nav>
       </Default>
       <Mobile>
-        {token ? Logo : ''}
+        {isAuthenticated ? Logo : ''}
         <Button
           buttonType='button'
           cClass={isVisible ? "toggle toggle--close" : "toggle"}
@@ -99,7 +116,7 @@ const Nav = ({ token, siteTitle }) => {
         />
         {isVisible ?
           <nav className="nav">{navLinks}
-            {token ? LogOut : ''}
+            {isAuthenticated ? LogOut : LogIn}
           </nav>
           : ''
         }

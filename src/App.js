@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useRoutes } from "react-router-dom"
+import { useAuth0 } from "@auth0/auth0-react";
+import history from "./services/history";
 
-import useToken from "./services/useToken"
-import Login from "./components/login"
 import About from "./pages/about"
 import Nag from "./components/Nag"
 
@@ -12,15 +12,14 @@ import Recipes from "./pages/recipes"
 import Recipe from "./pages/recipe"
 
 const App = () => {
-  const { token, setToken } = useToken();
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   let inauthenticatedRoutes = [
     {
       path: "/",
-      element: <Login
-        pageTitle={Login}
-        pageClass="login"
-        setToken={setToken}
+      element: <About
+        pageTitle={About}
+        pageClass="about"
       />
     },
     {
@@ -41,7 +40,8 @@ const App = () => {
       path: "/",
       element: <Dashboard
         pageTitle={Dashboard}
-        token={token}
+        isAuthenticated={isAuthenticated}
+        user={user}
       />
     },
     {
@@ -51,12 +51,16 @@ const App = () => {
           index: true,
           element: <Recipes
             pageTitle={Recipes}
-            token={token}
+            isAuthenticated={isAuthenticated}
+            user={user}
           />
         },
         {
           path: ":id",
-          element: <Recipe token={token} />
+          element: <Recipe
+            isAuthenticated={isAuthenticated}
+            user={user}
+          />
         }
       ]
     },
@@ -64,14 +68,16 @@ const App = () => {
       path: "/contribute",
       element: <Contribute
         pageTitle={Contribute}
-        token={token}
+        isAuthenticated={isAuthenticated}
+        user={user}
       />
     },
     {
       path: "/dashboard",
       element: <Dashboard
         pageTitle={Dashboard}
-        token={token}
+        isAuthenticated={isAuthenticated}
+        user={user}
       />
     },
     {
@@ -80,13 +86,13 @@ const App = () => {
     }
   ];
 
-let inauthenticated = useRoutes(inauthenticatedRoutes);
-let authenticated = useRoutes(authenticatedRoutes);
+  let inauthenticated = useRoutes(inauthenticatedRoutes);
+  let authenticated = useRoutes(authenticatedRoutes);
 
-if (!token) {
-  return inauthenticated
-}
-return authenticated
+  if (!isAuthenticated) {
+    return inauthenticated
+  }
+  return authenticated
 }
 
 export default App

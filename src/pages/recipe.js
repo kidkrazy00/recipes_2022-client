@@ -6,7 +6,7 @@ import Button from '../components/Button'
 //layout
 import Layout from '../layout/LayoutRecipe'
 
-const RecipePost = (token) => {
+const RecipePost = ({user}) => {
   let navigate = useNavigate();
   let params = useParams();
   let paramsId = params.id - 1;
@@ -19,9 +19,9 @@ const RecipePost = (token) => {
     let mounted = true;
 
     fetchRecipes()
-      .then(items => {
+      .then(data => {
         if (mounted) {
-          setData(items[paramsId])
+          setData(data.items[paramsId])
           // console.log('data: ', data)
         }
       })
@@ -71,7 +71,7 @@ const RecipePost = (token) => {
         < Layout
           pageTitle={data.title}
           pageClass="recipe"
-          token={token}
+          user={user}
           key={params.id}
         >
           {/* {date} */}

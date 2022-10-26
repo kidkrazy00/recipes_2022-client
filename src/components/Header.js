@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import Nav from './Nav'
 
 const Header = ({ token, siteTitle }) => {
@@ -29,8 +28,9 @@ const Header = ({ token, siteTitle }) => {
 
   return (
     <>
-      <header className={token ? 'header header--solid' : 'header'}>
-        <Nav siteTitle={siteTitle} token={token} />
+      {/* <header className={isAuthenticated ? 'header header--solid' : 'header'}> */}
+      <header className='header'>
+        <Nav siteTitle={siteTitle} />
       </header>
     </>
   )

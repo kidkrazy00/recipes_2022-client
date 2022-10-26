@@ -8,7 +8,7 @@ import Confirmation from "../components/Confirmation";
 // layout
 import Layout from '../layout/Layout'
 
-const Contribute = (props, token) => {
+const Contribute = (props, user) => {
   // const [submit, setSubmit] = useState(false);
   const [step, setStep] = useState(1);
   const [emailStatus, setEmailStatus] = useState(false);

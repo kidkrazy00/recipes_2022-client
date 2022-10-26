@@ -3,11 +3,11 @@ import * as React from 'react'
 //components
 import Header from '../components/Header'
 
-const Layout = ({ token, pageClass, pageTitle, children, userInteractions }) => {
+const Layout = ({ pageClass, pageTitle, children, userInteractions }) => {
 
   return (
     <>
-      <Header token={token} siteTitle="sitTitle" />
+      <Header siteTitle="sitTitle" />
       <main>
         <article className={pageClass}>
           <h1>

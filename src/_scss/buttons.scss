@@ -14,8 +14,12 @@
 .btn {
 
     &__basic {
+        // @include button($display: inline-flex, $grow:1, $flex: 100%);
+        // @include buttonStyle(default);
+        // font-weight: var(--font-weight-button);
+        // transition: all var(--duration-quick);
         @include button($display: flex, $grow:1, $shrink:1, $flex: auto);
-        @include buttonStyle();
+        @include buttonStyle(default);
         width: fit-content;
         justify-self: center;
         transition: all var(--duration-quick);

@@ -4,10 +4,10 @@ import { dbRecipeGet } from '../services/fetchRecipes'
 //components
 import Header from '../components/Header'
 
-const LayoutRecipe = ({ token, pageClass, pageTitle, children }) => {
+const LayoutRecipe = ({ pageClass, pageTitle, children }) => {
   return (
     <>
-      <Header token={token} siteTitle="sitTitle" />
+      <Header siteTitle="sitTitle" />
       <main>
         <article className={pageClass}>
           <h1>{pageTitle}</h1>

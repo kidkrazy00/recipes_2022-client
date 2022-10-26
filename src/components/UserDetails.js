@@ -16,6 +16,7 @@ const UserDetials = ({ nextStep, name, setName, email, setEmail }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder={name === undefined || name === '' ? 'Name' : name}
+            disabled
             required
           />
         </div>
@@ -27,6 +28,7 @@ const UserDetials = ({ nextStep, name, setName, email, setEmail }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={email === undefined || email === '' ? 'Email' : email}
+            disabled
             required
           />
         </div>

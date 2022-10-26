@@ -4,7 +4,7 @@ import { loginUser } from "../services/loginUser";
 import { useNavigate } from 'react-router-dom'
 import Layout from "../layout/Layout"
 import Brand from './Brand'
-import Button from "../components/Button"
+import Button from "./Button"
 
 const Login = ({ setToken }) => {
   const [username, setUsername] = useState('');
