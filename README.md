@@ -1,4 +1,4 @@
-# React bsed recipe pwa with sql db
+# React based recipe pwa with sql db and auth0
 
 This is the 2022 version of recipes.kidkrazy.net
 
