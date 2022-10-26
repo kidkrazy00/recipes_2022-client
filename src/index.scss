@@ -38,14 +38,13 @@
 @import "_scss/components/header";
 @import "_scss/components/social";
 @import "_scss/components/gallery";
-@import "_scss/components/login";
 @import "_scss/components/nag";
 @import "_scss/components/dashboard";
 
 
 //pages
-@import "_scss/pages/home";
-@import "_scss/pages/about";
-@import "_scss/pages/contribute";
-@import "_scss/pages/recipe_list";
-@import "_scss/pages/recipe";
+@import "_scss/views/landing";
+@import "_scss/views/about";
+@import "_scss/views/contribute";
+@import "_scss/views/recipe_list";
+@import "_scss/views/recipe";

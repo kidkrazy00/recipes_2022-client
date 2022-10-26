@@ -32,7 +32,7 @@ const Nav = ({ siteTitle }) => {
   ]
 
   let inauthenticated = [
-    { name: "About", destination: "about/" },
+    // { name: "About", destination: "about/" },
   ]
 
   const links = (isAuthenticated ? authenticated : inauthenticated)
@@ -46,19 +46,6 @@ const Nav = ({ siteTitle }) => {
       >
         {item.name}
       </NavLink>
-    </li>
-  )
-
-  const LogIn = (
-    <li>
-      <Button
-        cClass="btn__submit"
-        buttonType='button'
-        title="Login"
-        name="Login"
-        icon="true"
-        click={() => loginWithRedirect({})}
-      />
     </li>
   )
 
@@ -103,7 +90,7 @@ const Nav = ({ siteTitle }) => {
         {isAuthenticated ? Logo : ''}
         <nav className="nav">
           {navLinks}
-          {isAuthenticated ? LogOut : LogIn}
+          {isAuthenticated ? LogOut : ''}
         </nav>
       </Default>
       <Mobile>
@@ -116,7 +103,7 @@ const Nav = ({ siteTitle }) => {
         />
         {isVisible ?
           <nav className="nav">{navLinks}
-            {isAuthenticated ? LogOut : LogIn}
+            {isAuthenticated ? LogOut : ''}
           </nav>
           : ''
         }
