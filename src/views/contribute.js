@@ -117,7 +117,7 @@ const Contribute = ({ user, isAuthenticated }, ...props) => {
       user={user}
       isAuthenticated={isAuthenticated}
     >
-      <form id="contact-form" className="" onSubmit={onSubmit} method="POST">
+      <form id="contribute-form" className="" onSubmit={onSubmit} method="POST">
         {
           renderSwitch(step)
         }
