@@ -1,0 +1,18 @@
+:root {
+    //tags
+    --size-hr: 1px;
+    --color-hr: var(--color-content);
+
+    --color-blockquote-icon: rgba(140, 140, 140, 1);
+    --color-blockquote-fg: var(--color-content);
+    --color-blockquote-bg: rgba(200, 200, 200, 1);
+    --color-blockquote-cite: rgba(255, 255, 255, 1);
+
+    --color-table-head-fg: rgba(255, 255, 255, 1);
+    --color-table-bg: rgba(200, 200, 200, 1);
+    --color-table-head: rgba(140, 140, 140, 1);
+    --color-table-fg: var(--color-content);
+    --color-table-row-alt: rgba(180, 180, 180, 1);
+    --color-table-foot-fg: rgba(255, 255, 255, 1);
+    --color-table-foot: rgba(140, 140, 140, 1);
+}

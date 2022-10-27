@@ -13,10 +13,6 @@
     background-color: var(--color-card-background);
     animation: fadeUp var(--duration);
 
-    @include breakpoint(small) {
-        border-radius: initial;
-    }
-
     *:not(
         source,
         img,

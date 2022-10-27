@@ -1,0 +1,41 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-nav: rgb(20, 20, 20, 0.95);
+        --color-header: rgba(0, 0, 0, .45);
+        --color-body: rgba(0, 0, 0, 0);
+        --color-footer: rgba(80, 80, 80, 1);
+
+        --color-link: rgba(0, 200, 100, 1);
+        --color-link-h: rgba(0, 220, 120, 1);
+        --color-focus: rgba(0, 220, 120, 1);
+
+        --color-heading: rgba(0, 220, 120, 1);
+        --color-heading-sub: rgba(245, 245, 245, 1);
+        --color-content: rgba(230, 230, 230, 1);
+        --color-content-highlight: rgba(220, 220, 220, 1);
+        --color-footer-fg: rgba(245, 245, 245, 1);
+
+        --color-error: rgba(255, 80, 80, 1);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-nav: rgb(20, 20, 20, 0.95);
+        --color-header: rgba(0, 0, 0, .45);
+        --color-body: rgba(0, 0, 0, 0);
+        --color-footer: rgba(80, 80, 80, 1);
+
+        --color-link: rgba(0, 200, 100, 1);
+        --color-link-h: rgba(0, 220, 120, 1);
+        --color-focus: rgba(0, 220, 120, 1);
+
+        --color-heading: rgba(0, 220, 120, 1);
+        --color-heading-sub: rgba(245, 245, 245, 1);
+        --color-content: rgba(230, 230, 230, 1);
+        --color-content-highlight: rgba(220, 220, 220, 1);
+        --color-footer-fg: rgba(245, 245, 245, 1);
+
+        --color-error: rgba(255, 80, 80, 1);
+    }
+}

@@ -33,7 +33,7 @@ main {
     padding: var(--size-root-full);
 
     @include breakpoint(small) {
-        padding: initial;
+        padding: var(--size-root-full) var(--size-root-full) var(--size-root-full) var(--size-root-full);
     }
 }
 

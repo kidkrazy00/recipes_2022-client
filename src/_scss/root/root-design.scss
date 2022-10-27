@@ -1,0 +1,16 @@
+:root {
+    //design elements
+    --backdrop-filter-ui: brightness(0.4) blur(2px);
+    --box-shadow-ui: 0px 0.5rem 2rem -0.125rem rgba(0, 0, 0, 0.5);
+    --backdrop-filter: blur(5px);
+
+    --color-border-all: rgba(255, 255, 255, 1);
+    --border-radius: 0.5rem;
+    --border-radius-full: 100%;
+
+    --box-shadow: 0px 0.5rem 1rem -0.125rem rgba(255, 255, 255, 0.25);
+    // --box-shadow-shallow: 0px 1px 4px 0 rgba(80, 80, 80, .5);
+    --box-shadow-inset: inset 0px 0px 0.5rem 0.125rem rgba(0, 220, 120, 0.5);
+
+    --text-shadow: 1px 2px 0.25rem rgba(0, 0, 0, 0.6);
+}

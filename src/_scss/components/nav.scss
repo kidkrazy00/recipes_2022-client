@@ -42,11 +42,16 @@
                 border-bottom: 2px solid var(--color-link);
 
                 @include breakpoint(small) {
+                    border-left: 2px solid var(--color-link);
                     border-bottom: none;
                 }
 
             }
         }
+    }
+
+    & > .btn__submit {
+        width: auto;
     }
 
     .social {

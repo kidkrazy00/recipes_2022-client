@@ -1,0 +1,30 @@
+:root {
+    // custom content
+    --size-brand: 60px;
+    --size-header: 80px;
+    --size-nav-width: 300px;
+    --size-footer: 80px;
+
+    --size-hero-font: 2rem;
+    --size-hero-font-small: 80%;
+
+    --size-hero-page-font: 1.5rem;
+
+    // support for galler, not currnetly inuse
+    // --size-gallery-media-width: 80vw;
+    // --size-gallery-media-height: 80vh;
+    // --color-hero-background: var(--color-body);
+
+    --size-login: 400px;
+    --color-login-background: rgba(255, 255, 255, 0.1);
+
+    --size-card-icon: 48px;
+    --size-card-title: 1.25rem;
+    --color-card-icon: rgba(255, 255, 255, 0.8);
+    --color-card-title: rgba(255, 255, 255, 1);
+    --color-card-background: rgba(255, 255, 255, 0.1);
+
+    --size-recipe: 600px;
+    --size-recipe-media: 300px;
+    --box-shadow-recipe-media: 0px 0.5rem 1rem -0.125rem rgb(0, 0, 0, 0.75);
+}

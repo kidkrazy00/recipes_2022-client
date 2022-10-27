@@ -100,7 +100,7 @@
             }
             
             &:focus {
-                outline: 2px solid var(--color-accent);
+                outline: 2px solid var(--color-focus);
                 // box-shadow: var(--box-shadow-inset);
                 transition: var(--duration-quick);
             }

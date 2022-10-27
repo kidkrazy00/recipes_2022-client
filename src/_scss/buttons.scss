@@ -14,10 +14,6 @@
 .btn {
 
     &__basic {
-        // @include button($display: inline-flex, $grow:1, $flex: 100%);
-        // @include buttonStyle(default);
-        // font-weight: var(--font-weight-button);
-        // transition: all var(--duration-quick);
         @include button($display: flex, $grow:1, $shrink:1, $flex: auto);
         @include buttonStyle(default);
         width: fit-content;
@@ -32,7 +28,7 @@
     }
 
     &__back {
-        @include button($display: inline-flex, $grow:0, $flex: auto);
+        @include button($display: flex, $grow:1, $shrink:1, $flex: auto);
         @include buttonStyle(text);
         font-weight: var(--font-weight-button);
         transition: all var(--duration-quick);
@@ -46,6 +42,7 @@
             min-height: var(--size-touch);
             font-family: 'Font Awesome 5 Free';
             font-size: var(--size-root-full);
+            margin: 0 var(--size-root-half) 0 0;
         
             &:before {
                 content: "\f053";

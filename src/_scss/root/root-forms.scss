@@ -1,0 +1,56 @@
+:root {
+    //forms
+    --font-size-button: var(--size-font);
+    --font-family-button: var(--font-family);
+    --font-weight-button: var(--font-weight);
+
+    --color-button-fg: rgba(255, 255, 255, 1);
+    --color-button-bg: rgba(0, 200, 100, 1);
+    --color-button-border: rgba(0, 200, 100, 1);
+    --color-button-fg-h: rgba(255, 255, 255, 1);
+    --color-button-bg-h: rgba(0, 220, 100, 1);
+    --color-button-border-h: rgba(0, 220, 100, 1);
+    
+    --size-button-border: 2px;
+    --size-button-border-h: 2px;
+    --border-radius-button: #{var(--size-border-radius)};
+    --border-radius-button-h: #{var(--size-border-radius)};
+    --duration-button: 0.25s;
+
+
+    --color-label: rgba(0, 220, 100, 1);
+    --color-placeholder: rgba(100, 100, 100, 1);
+    --color-input-fg: rgba(40, 40, 40, 1);
+    --color-input-bg: rgba(235, 235, 235, 1);
+    --color-input-border: var(--color-border-all);
+    --border-radius-input: #{var(--size-border-radius)};
+    --font-family-input: var(--font-family);
+    --font-weight-input: var(--font-weight-light);
+
+    --color-range-thumb: rgba(0, 200, 100, 1);
+    --color-range-value: rgba(160, 160, 160, 1);
+    --color-range-bg: rgba(235, 235, 235, 1);
+    --color-range-border: var(--color-border-all);
+    --border-radius-range: #{var(--size-border-radius)};
+    --font-family-range: var(--font-family);
+    --font-weight-range: var(--font-weight-light);
+
+    --color-select-fg: rgba(40, 40, 40, 1);
+    --color-select-bg: rgba(235, 235, 235, 1);
+    --color-select-border: var(--color-border-all);
+    --border-radius-select: #{var(--size-border-radius)};
+    --font-family-select: var(--font-family);
+    --font-weight-select: var(--font-weight-light);
+
+    --color-checkbox-check: rgba(0, 220, 100, 1);
+    --color-checkbox-fg: rgba(40, 40, 40, 1);
+    --color-checkbox-bg: transparent;
+    --color-checkbox-border: var(--color-border-all);
+    --border-radius-checkbox: #{var(--size-border-radius)};
+    --font-family-checkbox: var(--font-family);
+    --font-weight-checkbox: var(--font-weight-light);
+
+    // accessability
+    --focus-border-hidden: 2px dashed transparent;
+    --focus-border-active: 2px dashed;
+}
