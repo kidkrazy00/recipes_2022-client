@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from 'react-router-dom'
 import { dbRecipePost } from "../services/fetchContribute";
 import UserDetails from "../components/UserDetails";
@@ -9,17 +8,10 @@ import Confirmation from "../components/Confirmation";
 // layout
 import Layout from '../layout/Layout'
 
-const Contribute = (props) => {
+const Contribute = ({ user, isAuthenticated }, ...props) => {
   const [step, setStep] = useState(1);
   const [postData, setPostData] = useState();
   const [success, setSuccess] = useState(false);
-
-  const {
-    user,
-    isAuthenticated,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
 
   // form UserDetails
   const [name, setName] = useState(user.nickname || "");
@@ -98,15 +90,17 @@ const Contribute = (props) => {
     dbRecipePost(name, email, title, categoryResult, ingredients, directions, setSuccess);
     // for testing uncomment next line
     // console.log('roundup: ', name, email, title, categoryResult, ingredients, directions)
-    
+
     // const [response, loading, hasError] = useFetch("api/data")
   };
-  
+
   if (success !== false) {
     return (
       <Layout
         pageClass="contribute"
         pageTitle="Awesome!"
+        user={user}
+        isAuthenticated={isAuthenticated}
       >
         <article className="response">
           <p>Your contribution is under review and will be added to our collection.</p>
@@ -120,6 +114,8 @@ const Contribute = (props) => {
     <Layout
       pageClass="contribute"
       pageTitle="Contribute"
+      user={user}
+      isAuthenticated={isAuthenticated}
     >
       <form id="contact-form" className="" onSubmit={onSubmit} method="POST">
         {

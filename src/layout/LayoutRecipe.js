@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { dbRecipeGet } from '../services/fetchRecipes'
 
 //components
 import Header from '../components/Header'
 
-const LayoutRecipe = ({ pageClass, pageTitle, children }) => {
+const LayoutRecipe = ({ sitTitle, pageClass, pageTitle, children, isAuthenticated }) => {
+
   return (
     <>
-      <Header siteTitle="sitTitle" />
+      <Header siteTitle={sitTitle} isAuthenticated={isAuthenticated} />
       <main>
         <article className={pageClass}>
           <h1>{pageTitle}</h1>

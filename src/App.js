@@ -19,7 +19,7 @@ const App = () => {
       path: "/",
       element: <Landing
         pageTitle={Landing}
-        pageClass="about"
+        pageClass="landing"
       />
     },
     {

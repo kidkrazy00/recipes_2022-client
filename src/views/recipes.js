@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 // layout
 import Layout from '../layout/Layout'
 
-const RecipesPage = () => {
+const RecipesPage = ({isAuthenticated}) => {
   const [selectedOption, setSelectedOption] = useState('all');
   const [data, setData] = useState([]);
   const urlPath = `${process.env.REACT_APP_CDN}`;
@@ -80,6 +80,7 @@ const RecipesPage = () => {
         pageTitle="Recipes"
         pageClass="recipe__list"
         userInteractions={itemFilter}
+        isAuthenticated={isAuthenticated}
       >
         <ul>
           {itemList}

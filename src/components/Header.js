@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Nav from './Nav'
 
-const Header = ({ token, siteTitle }) => {
+const Header = ({ isAuthenticated, siteTitle }) => {
   const [header, setHeader] = useState('');
   const [trigger] = useState('10');
 
@@ -28,8 +28,7 @@ const Header = ({ token, siteTitle }) => {
 
   return (
     <>
-      {/* <header className={isAuthenticated ? 'header header--solid' : 'header'}> */}
-      <header className='header'>
+      <header className={isAuthenticated ? 'header header--solid' : 'header'}>
         <Nav siteTitle={siteTitle} />
       </header>
     </>

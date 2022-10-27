@@ -6,11 +6,11 @@ import Button from '../components/Button'
 //layout
 import Layout from '../layout/LayoutRecipe'
 
-const RecipePost = ({user}) => {
+const RecipePost = ({ user, isAuthenticated }) => {
   let navigate = useNavigate();
   let params = useParams();
   let paramsId = params.id - 1;
-  
+
   const [data, setData] = useState([]);
   const urlPath = `${process.env.REACT_APP_CDN}`;
   const imgPath = urlPath + 'icons/icons_';
@@ -73,6 +73,7 @@ const RecipePost = ({user}) => {
           pageClass="recipe"
           user={user}
           key={params.id}
+          isAuthenticated={isAuthenticated}
         >
           {/* {date} */}
           {heroImage}
