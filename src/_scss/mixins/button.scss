@@ -1,4 +1,4 @@
-@mixin button ($display: flex, $grow: 1, $shrink: 1, $flex: 100%, $justify: center, $height: $size-touch, $padding: $size-root-quarter $size-root-half) {
+@mixin button ($display: flex, $grow: 1, $shrink: 1, $flex: 100%, $justify: center, $height: var(--size-touch), $padding: var(--size-root-quarter) var(--size-root-half)) {
     display: $display;
     // display: inline-block; // safari hack
     align-items: center;

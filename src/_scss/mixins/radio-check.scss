@@ -1,5 +1,5 @@
 // useage
-// @include radioCheck($type:null, $grow: 1, $shrink: 1, $flex: 100%, $height:$size-touch ) 
+// @include radioCheck($type:null, $grow: 1, $shrink: 1, $flex: 100%, $height:var(--size-touch) ) 
 
 @mixin radioCheck ($type:null, $grow: 1, $shrink: 1, $flex: 100%, $alignment:baseline ,$height:auto ) { 
     position: relative;
@@ -21,35 +21,35 @@
     }
 
     @include breakpoint(small) {
-        min-height: $size-touch;
+        min-height: var(--size-touch);
     }
 
     label {
         position: relative;
         display: flex;
         align-items: $alignment;
-        padding-left: $size-root-half;
+        padding-left: var(--size-root-half);
         cursor: pointer;
 
         &:before {
             content: '';
             position: relative;
             display: inline-block;
-            top: ($size-root-quarter / 2);
-            left: -$size-root-half;
-            width: $size-root-full;
-            min-width: $size-root-full;
-            height: $size-root-full;
+            top: (var(--size-root-quarter) / 2);
+            left: -var(--size-root-half);
+            width: var(--size-root-full);
+            min-width: var(--size-root-full);
+            height: var(--size-root-full);
         }
 
         &:after {
             position: absolute;
             display: inline-block;
             content: '';
-            width: $size-root-half;
-            height: $size-root-half;
+            width: var(--size-root-half);
+            height: var(--size-root-half);
             top: 0.35rem;
-            left: $size-root-quarter;
+            left: var(--size-root-quarter);
             transition: all .2s;
         }
     }

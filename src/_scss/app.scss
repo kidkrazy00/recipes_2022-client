@@ -4,12 +4,35 @@
   font-display: swap;
 }
 
+#root:before {
+    // z-index: var(--depth-negative);
+    z-index: var(-1);
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('#{$pathToImages}stock/pexels-monicore-1087897.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0% 50%;
+    filter: brightness(0.5);
+    box-shadow: inset 0px 0px 10rem -1rem black;
+
+    @include breakpoint(small) {
+        background-color: rgba(59, 49, 52, 1);
+        background: url('#{$pathToImages}stock/pexels-monicore-1087897-small.jpg') no-repeat;
+        background-size: cover;
+    }
+}
+
 main {
-    transform: $depth-content;
-    max-width: $size-max;
+    position: relative;
+    z-index: var(--depth-content);
+    // transform: var(--depth-content);
+    max-width: var(--size-max);
     min-height: calc(100vh - (var(--size-header)));
     margin: 0 auto 0 auto;
-    padding: $size-root-full;
+    padding: var(--size-root-full);
 
     @include breakpoint(small) {
         padding: initial;
@@ -18,16 +41,23 @@ main {
 
 footer {
     min-height: var(--size-footer);
-    display: grid;
-    grid-template: 1fr / repeat(2, 1fr);
-    grid-gap: var(--layout-content-gap);
+
+    @include containerLayout(
+        grid,
+        $rows: 1fr, 
+        $columns: repeat(2, 1fr),
+        $gap: var(--layout-content-gap), 
+        $padding: var(--size-root-full),
+        $width: var(--size-max),
+        $margin: 0 auto
+    );
     align-self: stretch;
-    padding: $size-root-full;
     color: var(--color-footer-fg);
     background: var(--color-footer);
 
     @include breakpoint(small) {
-        grid-template: 1fr / 1fr;
+        grid-row: 1fr;
+        grid-column: 1fr;
     }
 
     .copyright {

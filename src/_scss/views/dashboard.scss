@@ -1,12 +1,13 @@
-.about {
+.dashboard {
     @include containerLayout(
         grid,
         $rows: auto, 
-        $columns: repeat(3, minmax(200px, 1fr)),
+        $columns: 1fr,
         $gap: var(--size-root-full), 
-        $padding: var(--size-root-full),
+        $padding: 0,
         $width: var(--size-recipe),
         $margin: 0 auto
     );
     animation: fadeUp var(--duration);
 }
+

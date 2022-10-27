@@ -1,21 +1,25 @@
 .nag {
-    transform: $depth-content;
+    transform: var(--depth-content);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
 
     div {
-        display: grid;
-        gap: $size-root-full;
-        // flex-wrap: wrap;
+        @include containerLayout(
+            grid,
+            $rows: auto, 
+            $columns: 1fr,
+            $gap: var(--size-root-full), 
+            $padding: var(--size-root-full),
+            $width: var(--size-login),
+            $margin: 0 auto
+        );
+        
         align-items: center;
         justify-items: center;
-        max-width: var(--size-login);
         line-height: calc(var(--line-height) * 2);
-        padding: $size-root-full;
         border-radius: var(--border-radius);
-        // border: 2px solid var(--color-body-secondary);
         animation: fadeUp var(--duration);
 
         @include breakpoint(small) {

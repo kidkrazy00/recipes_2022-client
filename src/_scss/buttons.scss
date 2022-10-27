@@ -43,9 +43,9 @@
             justify-content: center;
             width: var(--size-icon-large);
             height: var(--size-icon-large);
-            min-height: $size-touch;
+            min-height: var(--size-touch);
             font-family: 'Font Awesome 5 Free';
-            font-size: $size-root-full;
+            font-size: var(--size-root-full);
         
             &:before {
                 content: "\f053";
@@ -67,9 +67,9 @@
             justify-content: center;
             width: var(--size-icon-large);
             height: var(--size-icon-large);
-            min-height: $size-touch;
+            min-height: var(--size-touch);
             font-family: 'Font Awesome 5 Free';
-            font-size: $size-root-full;
+            font-size: var(--size-root-full);
         
             &:before {
                 content: "\f054";
@@ -89,9 +89,9 @@
             justify-content: center;
             width: var(--size-icon-large);
             height: var(--size-icon-large);
-            min-height: $size-touch;
+            min-height: var(--size-touch);
             font-family: 'Font Awesome 5 Free';
-            font-size: $size-root-full;
+            font-size: var(--size-root-full);
         
             &:before {
                 content: "\f03a";
@@ -110,11 +110,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: $size-root-full;
-            height: $size-touch;
-            margin: 0 $size-root-half;
+            width: var(--size-root-full);
+            height: var(--size-touch);
+            margin: 0 var(--size-root-half);
             font-family: 'Font Awesome 5 Free';
-            font-size: $size-root-full;
+            font-size: var(--size-root-full);
         
             &:before {
                 content: "\f35d";
@@ -133,11 +133,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: $size-root-full;
-            height: $size-touch;
-            margin: 0 $size-root-half;
+            width: var(--size-root-full);
+            height: var(--size-touch);
+            margin: 0 var(--size-root-half);
             font-family: 'Font Awesome 5 Free';
-            font-size: $size-root-full;
+            font-size: var(--size-root-full);
         
             &:before {
                 content: "\f054";
@@ -159,10 +159,10 @@
             justify-content: center;
             width: var(--size-icon-large);
             height: var(--size-icon-large);
-            min-height: $size-touch;
-            margin: 0 0 0 $size-root-full;
+            min-height: var(--size-touch);
+            margin: 0 0 0 var(--size-root-full);
             font-family: 'Font Awesome 5 Free';
-            font-size: $size-root-full;
+            font-size: var(--size-root-full);
         
             &:before {
                 content: "\f2f5";
@@ -183,10 +183,10 @@
             justify-content: center;
             width: var(--size-icon-large);
             height: var(--size-icon-large);
-            min-height: $size-touch;
-            margin: 0 0 0 $size-root-full;
+            min-height: var(--size-touch);
+            margin: 0 0 0 var(--size-root-full);
             font-family: 'Font Awesome 5 Free';
-            font-size: $size-root-full;
+            font-size: var(--size-root-full);
         
             &:before {
                 content: "\f2f6";
@@ -207,10 +207,10 @@
             justify-content: center;
             width: var(--size-icon-large);
             height: var(--size-icon-large);
-            min-height: $size-touch;
-            margin: 0 0 0 $size-root-full;
+            min-height: var(--size-touch);
+            margin: 0 0 0 var(--size-root-full);
             font-family: 'Font Awesome 5 Free';
-            font-size: $size-root-full;
+            font-size: var(--size-root-full);
         
             &:before {
                 content: "\f1d8";

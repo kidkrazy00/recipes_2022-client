@@ -13,27 +13,8 @@ html, body {
     font-family: var(--font-family);
     font-size: var(--size-font);
     line-height: var(--line-height);
-    background-color: rgba(59, 49, 52, 1);
     color: var(--color-content);
-}
-
-body:before {
-    transform: $depth-background;
-    content: '';
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: url('#{$pathToImages}stock/pexels-monicore-1087897.jpg') no-repeat;
-    background-size: cover;
-    background-position: 0% 50%;
-    filter: brightness(0.5);
-    box-shadow: inset 0px 0px 10rem -1rem black;
-
-    @include breakpoint(small) {
-        background-color: rgba(59, 49, 52, 1);
-        background: url('#{$pathToImages}stock/pexels-monicore-1087897-small.jpg') no-repeat;
-        background-size: cover;
-    }
+    background-color: rgba(59, 49, 52, 1);
 }
 
 :focus {
@@ -126,8 +107,8 @@ details {
             display: flex; // anything aside from inline related styles causes desktop safari to bug
             flex-direction: row-reverse;
             align-items: center;
-            min-height: $size-touch;
-            // padding: $size-root-half 0;
+            min-height: var(--size-touch);
+            // padding: var(--size-root-half) 0;
             color: var(--color-link);
             font-family: var(---font-family-heading);
             font-size: calc(var(--size-font) * 1.25);
@@ -139,11 +120,11 @@ details {
                 flex-direction: row-reverse;
                 align-items: center;
                 justify-content: center;
-                width: $size-root-full;
-                height: $size-touch;
-                margin: 0 $size-root-half 0 auto;
+                width: var(--size-root-full);
+                height: var(--size-touch);
+                margin: 0 var(--size-root-half) 0 auto;
                 font-family: 'Font Awesome 5 Free';
-                font-size: $size-root-full;
+                font-size: var(--size-root-full);
             }
         }
 
@@ -217,7 +198,7 @@ ul {
     list-style-position: inside;
 
     li > ul {
-        padding: $size-root-half;
+        padding: var(--size-root-half);
     }
 }
 
@@ -235,42 +216,42 @@ blockquote {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin: $size-root-full;
-    padding: $size-root-full;
+    margin: var(--size-root-full);
+    padding: var(--size-root-full);
     background: var(--color-blockquote-bg);
-    border-left: $size-root-half solid var(--color-border-all);
+    border-left: var(--size-root-half) solid var(--color-border-all);
 
     &:before,
     &:after {
         position: absolute;
         color: var(--color-blockquote-icon);
         font-size: calc(var(--size-font) * 4);
-        line-height: $size-root-full * 4;
+        line-height: calc(var(--size-root-full) * 4);
         align-items: baseline;
     }
 
     &:before {
         content: open-quote;
-        top: $size-root-full;
-        left: $size-root-full;
+        top: var(--size-root-full);
+        left: var(--size-root-full);
     }
 
     // &:after {
     //     content: close-quote;
-    //     right: $size-root-full;
+    //     right: var(--size-root-full);
     //     bottom: 0;
     // }
 
     & p {
         color: var(--color-blockquote-fg);
         flex: 0 0 95%;
-        margin: 0 $size-root-full * 2 $size-root-half $size-root-full * 2;
+        margin: 0 calc(var(--size-root-full) * 2) var(--size-root-half) calc(var(--size-root-full) * 2);
     }
 
     & cite {
         color: var(--color-blockquote-cite);
         flex: 0 0 95%;
-        margin: 0 $size-root-full * 2 $size-root-half $size-root-full * 2;
+        margin: 0 calc(var(--size-root-full) * 2) var(--size-root-half) calc(var(--size-root-full) * 2);
     }
 }
 
@@ -282,14 +263,14 @@ table {
 
     thead {
         grid-area: thead;
-        padding: $size-root-quarter;
+        padding: var(--size-root-quarter);
         color: var(--color-table-head-fg);
         background: var(--color-table-head);
     }
 
     tfoot {
         grid-area: tfoot;
-        padding: $size-root-quarter;
+        padding: var(--size-root-quarter);
         color: var(--color-table-foot-fg);
         background: var(--color-table-foot);
     }
@@ -315,7 +296,7 @@ table {
 
     td {
         flex: 1;
-        padding: $size-root-quarter;
+        padding: var(--size-root-quarter);
     }
 }
 

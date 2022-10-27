@@ -1,7 +1,14 @@
 .social {
-    display: grid;
-    grid-template: 1fr / repeat(auto-fit, var(--size-icon-large));
-    grid-gap: $size-root-full;
+    @include containerLayout(
+        grid,
+        $rows: 1fr, 
+        $columns: epeat(auto-fit, var(--size-icon-large)),
+        $gap: var(--size-root-full), 
+        $padding: var(--size-root-full),
+        $width: var(--size-max),
+        $margin: 0 auto
+    );
+    
     align-items: center;
 
     @include breakpoint(small) {

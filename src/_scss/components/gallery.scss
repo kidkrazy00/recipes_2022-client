@@ -65,7 +65,7 @@
                 height: var(--size-icon-xlarge);
                 color: var(--color-link);
                 font-family: 'Font Awesome 5 Free';
-                font-size: $size-root-2x;
+                font-size: var(--size-root-2x);
 
                 &:before {
                     // text-shadow: var(--text-shadow);
@@ -117,7 +117,7 @@
             i {
                 position: absolute;
                 top: 1.5rem;
-                right: $size-root-full;
+                right: var(--size-root-full);
                 width: var(--size-icon-xlarge);
                 height: var(--size-icon-xlarge);
 

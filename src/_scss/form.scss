@@ -4,10 +4,16 @@
 	form {
 
 	    .element {
-	        display: grid;
-	        grid-gap: $size-root-quarter;
-	        grid-template: 1fr / 1fr 1fr;
-	        margin: 0 0 $size-root-full 0;
+
+			@include containerLayout(
+				grid,
+				$rows: 1fr, 
+				$columns: repeat(2 1fr),
+				$gap: var(--size-root-quarter), 
+				$padding: var(--size-root-full),
+				$width: var(--size-max),
+				$margin: 0 0 var(--size-root-full) 0
+			);
 	    }
 	}
 
@@ -17,14 +23,14 @@
 
 	fieldset {
 		flex: 1 0 100%;
-	    padding: $size-root-full;
+	    padding: var(--size-root-full);
 	    border: 1px solid var(--color-border-all);
 	}
 
 	select {
 	    @include select(1, 0, 100%);
 	    @include selectStyle();
-	    // @include svgBackground($mapUi, arrow-down6, $color-icon-primary, $position: calc(100% - #{$size-root-quarter}) 50%);
+	    // @include svgBackground($mapUi, arrow-down6, $color-icon-primary, $position: calc(100% - #{var(--size-root-quarter)}) 50%);
 	}
 
 	.checkbox {

@@ -1,9 +1,13 @@
 .recipe {
-    position: relative;
-    display: grid;
-    gap: 1.25rem;
-    max-width: var(--size-recipe);
-    margin: 0 auto;
+    @include containerLayout(
+        grid,
+        $rows: auto, 
+        $columns: 1fr,
+        $gap: var(--size-root-full), 
+        $padding: 0,
+        $width: var(--size-recipe),
+        $margin: 0 auto
+    );
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-ui) ;
     background-color: var(--color-card-background);
@@ -21,7 +25,7 @@
         button,
         i
         ) {
-        margin: 0 $size-root-full;
+        margin: 0 var(--size-root-full);
     }
 
     &__media {
@@ -49,7 +53,7 @@
     }
 
     h1 {
-        padding: $size-root-full 0 0 0 ;
+        padding: var(--size-root-full) 0 0 0 ;
     }
 
     h4 {
@@ -66,8 +70,8 @@
         position: sticky;
         display: flex;
         justify-content: center;
-        margin: 0 $size-root-full $size-root-full;
-        bottom: $size-root-full;
+        margin: 0 var(--size-root-full) var(--size-root-full);
+        bottom: var(--size-root-full);
         border-radius: var(--border-radius);
         background-color: var(--color-body);
         box-shadow: var(--box-shadow);

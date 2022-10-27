@@ -1,12 +1,12 @@
 .nav {
     display: flex;
-    gap: $size-root-full;
+    gap: var(--size-root-full);
     align-content: center;
     margin: 0 0 0 auto;
     transition: all var(--duration);
 
     @include breakpoint(small) {
-        z-index: $z-negative;
+        z-index: var(--depth-negative);
         position: absolute;
         display: grid;
         justify-items: center;
@@ -52,6 +52,6 @@
     .social {
         grid-template: 1fr / repeat(3, var(--size-icon-large));
         min-width: 50vw;
-        padding: $size-root-full;
+        padding: var(--size-root-full);
     }
 }

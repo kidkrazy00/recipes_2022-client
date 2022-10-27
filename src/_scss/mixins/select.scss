@@ -1,14 +1,14 @@
 // @include select();
 // @include selectStyle();
 
-@mixin select ($grow: 1, $shrink: 1, $flex: 100%, $height:$size-touch) {
+@mixin select ($grow: 1, $shrink: 1, $flex: 100%, $height:var(--size-touch)) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex: $grow $shrink $flex;
     height: $height;
-    font-size: $size-root-full;
-    padding: $size-root-half calc(#{$size-root-full} * 2) $size-root-half $size-root-half;
+    font-size: var(--size-root-full);
+    padding: var(--size-root-half) calc(#{var(--size-root-full)} * 2) var(--size-root-half) var(--size-root-half);
 
     &::-ms-expand {
         display: none;

@@ -4,7 +4,7 @@
     min-height: -webkit-fill-available;
     
     @include breakpoint(small){
-        padding: $size-root-full;
+        padding: var(--size-root-full);
     }
     
     form {
@@ -20,7 +20,7 @@
         max-width: var(--size-login);
         line-height: calc(var(--line-height) * 2);
         margin: 0 auto;
-        padding: $size-root-full;
+        padding: var(--size-root-full);
         box-shadow: var(--box-shadow-ui);
         border-radius: var(--border-radius);
         background-color: var(--color-login-background);
@@ -38,52 +38,19 @@
 		}
 
         fieldset {
-            display: grid;
-            width: 100%;
-            margin: 0 0 $size-root-full 0;
-        }
-
-	    .element {
-	        display: grid;
-            grid-gap: $size-root-quarter;
-            grid-template: repeat(2, min-content)/1fr;
-	    }
-
-        legend {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            color: var(--color-heading);
-            font-size: calc(var(--size-font) * 2.25);
-
-            @include breakpoint(small) {
-                font-size: calc(var(--size-font) * 2);
-            }
+            @include containerLayout(
+                grid,
+                $rows: auto, 
+                $columns: 1fr,
+                $gap: var(--size-root-full), 
+                $padding: var(--size-root-full),
+                $width: var(--size-max),
+                $margin: 0 0 var(--size-root-full) 0
+            );
         }
 
         label {
             color: var(--color-label);
         }
-	}
-
-	input[type='text'],
-    input[type='password'] {
-        color: var(--color-input-fg);
-        font-family: var(--font-family-input);
-        font-weight: var(--font-weight-input);
-        background-color: var(--color-input-bg);
-        padding: $size-root-full;
-        border-radius: var(--border-radius);
-        border: 1px solid var(--color-input-border);
-
-        &::placeholder {
-            color: var(--color-placeholder);
-        }
-        
-        &:focus {
-            outline: 2px solid var(--color-accent);
-            // box-shadow: var(--box-shadow-inset);
-            transition: var(--duration-quick);
-	    }
 	}
 }

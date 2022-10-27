@@ -1,4 +1,5 @@
 @import "_scss/variables";
+@import "_scss/root/root";
 
 //functions
 @import "_scss/functions/ratio";
@@ -14,9 +15,9 @@
 @import "_scss/mixins/select";
 @import "_scss/mixins/radio-check";
 @import "_scss/mixins/ratio";
+@import "_scss/mixins/container";
 
 //main files
-@import "_scss/root/root";
 @import "_scss/animation";
 @import "_scss/reset";
 
@@ -39,12 +40,12 @@
 @import "_scss/components/social";
 @import "_scss/components/gallery";
 @import "_scss/components/nag";
-@import "_scss/components/dashboard";
 
 
 //pages
 @import "_scss/views/landing";
 @import "_scss/views/about";
+@import "_scss/views/dashboard";
 @import "_scss/views/contribute";
 @import "_scss/views/recipe_list";
 @import "_scss/views/recipe";

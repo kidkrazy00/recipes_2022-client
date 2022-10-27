@@ -154,7 +154,7 @@ $size-carousel-height: 90vh;
         top: calc(50% - var(--size-icon-xlarge));
         color: var(--color-link);
         font-family: 'Font Awesome 5 Free';
-        font-size: $size-root-2x;
+        font-size: var(--size-root-2x);
         opacity: 0.3;
         cursor: pointer;
         transition: all var(--duration);
@@ -207,7 +207,7 @@ $size-carousel-height: 90vh;
         transition: all 0.15s ease-in;
 
         &-wrapper {
-            margin: $size-root-full;
+            margin: var(--size-root-full);
             overflow: hidden;
         }
     }
@@ -247,7 +247,7 @@ $size-carousel-height: 90vh;
         .dot {
             width: var(--size-icon-small);
             height: var(--size-icon-small);
-            margin: $size-root-half;
+            margin: var(--size-root-half);
             background: var(--color-icon);
             border-radius: 50%;
             box-shadow: var(--box-shadow);

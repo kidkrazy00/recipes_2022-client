@@ -2,14 +2,19 @@
     display: grid;
     justify-items: center;
     align-items: center;
-    padding: $size-root-full;
+    padding: var(--size-root-full);
     animation: fadeUp var(--duration);
 
     form {
-        display: grid;
-        gap: $size-root-full;
-        margin: 0 auto;
-        padding: $size-root-full;
+        @include containerLayout(
+            grid,
+            $rows: auto, 
+            $columns: repeat(3, minmax(200px, 1fr)),
+            $gap: var(--size-root-full), 
+            $padding: var(--size-root-full),
+            $width: var(--size-max),
+            $margin: 0 auto
+        );
         border-radius: var(--border-radius);
 
         @include breakpoint(small) {
@@ -17,9 +22,15 @@
         }
 
         .element {
-            display: grid;
-            grid-gap: $size-root-quarter;
-            grid-template: 1fr / 1fr;
+            @include containerLayout(
+                grid,
+                $rows: 1fr, 
+                $columns: 1fr,
+                $gap: var(--size-root-quarter), 
+                $padding: var(--size-root-quarter),
+                $width: 100%,
+                $margin: 0 auto
+            );
         }
 
         button {
@@ -47,7 +58,7 @@
         font-family: var(--font-family-input);
         font-weight: var(--font-weight-input);
         background-color: var(--color-input-bg);
-        padding: $size-root-full;
+        padding: var(--size-root-full);
         border-radius: var(--border-radius);
         border: 1px solid var(--color-input-border);
 

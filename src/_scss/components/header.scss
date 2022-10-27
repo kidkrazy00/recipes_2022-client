@@ -1,6 +1,5 @@
 .header {
-    z-index: $z-positive;
-    transform: $depth-header;
+    z-index: var(--depth-header);
     position: sticky;
     display: flex;
     grid-template-areas: 'home . navToggle';
@@ -10,7 +9,7 @@
     top: 0;
     right: 0;
     left: 0;
-    padding: 0 $size-root-full;
+    padding: 0 var(--size-root-full);
     transition: all var(--duration-quick);
     
     &--solid {

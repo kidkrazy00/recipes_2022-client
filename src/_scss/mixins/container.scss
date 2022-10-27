@@ -1,0 +1,32 @@
+/* snippet
+@include containerLayout(
+    grid,
+    $rows: auto, 
+    $columns: repeat(3, minmax(200px, 1fr)),
+    $gap: var(--size-root-full), 
+    $padding: var(--size-root-full),
+    $width: var(--size-max),
+    $margin: 0 auto
+);
+*/
+@mixin containerLayout(
+    $type: null,
+    $areas: null,
+    $rows: auto, 
+    $columns: repeat(3, minmax(200px, 1fr)),
+    $gap: var(--size-root-full), 
+    $padding: var(--size-root-full),
+    $width: var(--size-max),
+    $margin: 0 auto
+    ) {
+    
+    @if $type == grid {
+        display: grid;
+        grid-template: $rows / $columns;
+        grid-template-areas: $areas;
+        gap: $gap;
+        max-width: $width;
+        margin: $margin;
+        padding: $padding;
+    }
+}
