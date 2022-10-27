@@ -1,33 +1,19 @@
 .nag {
-    transform: var(--depth-content);
-    display: flex;
+    @include containerLayout(
+        grid,
+        $rows: auto,
+        $columns: 1fr,
+        $gap: var(--size-root-full),
+        $padding: var(--size-root-full),
+        $width: var(--size-login),
+        $margin: 0 auto
+    );
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-
-    div {
-        @include containerLayout(
-            grid,
-            $rows: auto, 
-            $columns: 1fr,
-            $gap: var(--size-root-full), 
-            $padding: var(--size-root-full),
-            $width: var(--size-login),
-            $margin: 0 auto
-        );
-        
-        align-items: center;
-        justify-items: center;
-        line-height: calc(var(--line-height) * 2);
-        border-radius: var(--border-radius);
-        animation: fadeUp var(--duration);
-
-        @include breakpoint(small) {
-            max-width: var(--size-login-small);
-        }
-
-        a {
-            width: 100%;
-        }
-    }
+    justify-items: center;
+    line-height: calc(var(--line-height) * 2);
+    box-shadow: var(--box-shadow-ui);
+    border-radius: var(--border-radius);
+    background-color: var(--color-login-background);
+    border-radius: var(--border-radius);
+    animation: fadeUp var(--duration);
 }

@@ -4,7 +4,12 @@ import { Link } from "react-router-dom"
 // layout
 import Layout from '../layout/Layout'
 
-const Dashboard = ({ user, isAuthenticated }) => {
+const Dashboard = ({ user, isAuthenticated, isLoading }) => {
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
   return (
     <Layout
       pageClass="dashboard"

@@ -6,7 +6,7 @@ import Button from '../components/Button'
 //layout
 import Layout from '../layout/LayoutRecipe'
 
-const RecipePost = ({ user, isAuthenticated }) => {
+const RecipePost = ({ user, isAuthenticated, isLoading }) => {
   let navigate = useNavigate();
   let params = useParams();
   let paramsId = params.id - 1;
@@ -63,6 +63,10 @@ const RecipePost = ({ user, isAuthenticated }) => {
   const date = (
     <time dateTime={data.date}>{data.date}</time>
   )
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
 
   return (
     <>

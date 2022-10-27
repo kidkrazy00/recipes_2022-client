@@ -3,24 +3,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import Layout from "../layout/Layout"
 import Brand from '../components/Brand'
-import Button from "../components/Button"
+import LoginButton from '../components/LoginButton';
 
 const Landing = () => {
-
-  const { loginWithRedirect } = useAuth0();
-
-  const LogIn = (
-      <Button
-        buttonType="button"
-        cClass="btn__submit"
-        type="submit"
-        title="Log In"
-        name="Log In"
-        value="Log In"
-        icon="true"
-        click={() => loginWithRedirect({})}
-      />
-  )
 
   let greetingMessage = (
     <>
@@ -41,7 +26,7 @@ const Landing = () => {
           {/* <legend> Family Recipies</legend> */}
           {greetingMessage}
         </fieldset>
-        {LogIn}
+        <LoginButton />
       </form>
     </Layout>
   )
