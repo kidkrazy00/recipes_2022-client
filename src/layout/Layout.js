@@ -10,10 +10,10 @@ const Layout = ({ sitTitle, pageClass, pageTitle, children, userInteractions, is
       <Header siteTitle={sitTitle} isAuthenticated={isAuthenticated} />
       <main>
         <article className={pageClass}>
-          <h1>
-            {pageTitle}
-            {userInteractions}
-          </h1>
+          <header>
+            {pageTitle ? <h1>{pageTitle}</h1> : ''}
+            {userInteractions ? userInteractions : ''}
+          </header>
           {children}
         </article>
       </main>
