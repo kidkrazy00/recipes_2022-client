@@ -8,7 +8,7 @@ import Confirmation from "../components/Confirmation";
 // layout
 import Layout from '../layout/Layout'
 
-const Contribute = ({ user, isAuthenticated }, ...props) => {
+const Contribute = ({ user, isAuthenticated, isLoading }, ...props) => {
   const [step, setStep] = useState(1);
   const [postData, setPostData] = useState();
   const [success, setSuccess] = useState(false);
@@ -94,6 +94,10 @@ const Contribute = ({ user, isAuthenticated }, ...props) => {
     // const [response, loading, hasError] = useFetch("api/data")
   };
 
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
   if (success !== false) {
     return (
       <Layout
@@ -117,7 +121,7 @@ const Contribute = ({ user, isAuthenticated }, ...props) => {
       user={user}
       isAuthenticated={isAuthenticated}
     >
-      <form id="contact-form" className="" onSubmit={onSubmit} method="POST">
+      <form id="contribute-form" className="" onSubmit={onSubmit} method="POST">
         {
           renderSwitch(step)
         }

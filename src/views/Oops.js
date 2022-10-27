@@ -1,10 +1,13 @@
 import * as React from "react"
+import LayoutBare from "../layout/LayoutBare"
 import Nag from "../components/Nag"
 
 // markup
 const NotFoundPage = () => {
   return (
-    <Nag />
+    <LayoutBare pageClass="oops">
+      <Nag className="nag" />
+    </LayoutBare>
   )
 }
 

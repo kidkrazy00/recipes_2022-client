@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import Landing from "./views/landing"
 import About from "./views/about"
-import Nag from "./components/Nag"
+import Oops from "./views/Oops"
 
 import Dashboard from "./views/dashboard"
 import Contribute from "./views/contribute"
@@ -31,7 +31,9 @@ const App = () => {
     },
     {
       path: "*",
-      element: <Nag />
+      element: <Oops
+        pageClass="oops"
+      />
     }
   ];
 
@@ -79,10 +81,6 @@ const App = () => {
         isAuthenticated={isAuthenticated}
         user={user}
       />
-    },
-    {
-      path: "*",
-      element: <Nag />
     }
   ];
 

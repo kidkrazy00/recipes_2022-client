@@ -1,30 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
-
 import { useMediaQuery } from 'react-responsive'
 import { Link, NavLink } from 'react-router-dom'
 import Brand from './Brand'
 import Button from './Button';
+import LogoutButton from './LogoutButton';
 
 const Nav = ({ siteTitle }) => {
+  const { user, isAuthenticated } = useAuth0();
+
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleNav = (e) => {
     setIsVisible(!isVisible);
   }
-
-
-  const {
-    user,
-    isAuthenticated,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
-  
-  const logoutWithRedirect = () =>
-    logout({
-      returnTo: window.location.origin,
-    });
 
   let authenticated = [
     { name: "Contribute", destination: "contribute/" },
@@ -46,19 +35,6 @@ const Nav = ({ siteTitle }) => {
       >
         {item.name}
       </NavLink>
-    </li>
-  )
-
-  const LogOut = (
-    <li>
-      <Button
-        cClass="btn__logout"
-        buttonType='button'
-        title="Logout"
-        name="Logout"
-        icon="true"
-        click={() => logoutWithRedirect()}
-      />
     </li>
   )
 
@@ -90,7 +66,7 @@ const Nav = ({ siteTitle }) => {
         {isAuthenticated ? Logo : ''}
         <nav className="nav">
           {navLinks}
-          {isAuthenticated ? LogOut : ''}
+          {isAuthenticated ? <LogoutButton /> : ''}
         </nav>
       </Default>
       <Mobile>
@@ -103,7 +79,7 @@ const Nav = ({ siteTitle }) => {
         />
         {isVisible ?
           <nav className="nav">{navLinks}
-            {isAuthenticated ? LogOut : ''}
+            {isAuthenticated ? <LogoutButton /> : ''}
           </nav>
           : ''
         }

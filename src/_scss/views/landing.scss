@@ -2,15 +2,9 @@
     display: flex;
     height: calc(80vh - var(--size-header));
     min-height: -webkit-fill-available;
-    
-    @include breakpoint(small){
-        padding: var(--size-root-full);
-    }
+    padding: var(--size-root-full);
     
     form {
-        --color-label: rgba(245, 245, 245, 1);
-        
-        z-index: 1;
         display: flex;
 		flex-wrap: wrap;
         align-content: center;
