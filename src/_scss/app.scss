@@ -5,8 +5,6 @@
 }
 
 #root:before {
-    // z-index: var(--depth-negative);
-    z-index: var(-1);
     content: '';
     position: fixed;
     width: 100vw;
