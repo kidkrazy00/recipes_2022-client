@@ -1,10 +1,12 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import Card from '../components/Card';
+import { useNavigate } from "react-router-dom";
 
 // layout
-import Layout from '../layout/Layout'
+import Layout from '../layout/Layout';
 
 const Dashboard = ({ user, isAuthenticated, isLoading }) => {
+  let navigate = useNavigate();
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -17,11 +19,28 @@ const Dashboard = ({ user, isAuthenticated, isLoading }) => {
       user={user}
       isAuthenticated={isAuthenticated}
     >
-      <p>Hi there {user.nickname}, discover some <Link to="/recipes/">recipes</Link></p>
-      <p>Got a recipe you want to share? <Link to="/contribute/">Contribute</Link> a recipe by filling out requested info.</p>
-      <p>Please know that submitted recipes held for validation and may not appear immediately.</p>
+      <p>Hi there {user.nickname},</p>
+      <p>welcome to the Family recipes app. Here you can find a collection of recipes contributed from other memebers of the family.</p>
+      <p className="small">Contributed recipes held for review and will not appear immediately in the recipes list.</p>
+      
+      <hr />
+
+      <div className='tiles'>
+        <Card
+          cardType='default'
+          onClick={() => {navigate(`/recipes`)}}
+          cardTitle='Recipes'
+          cardContent={<p>Discover recipes contributed by others.</p>}
+        />
+        <Card
+          cardType='default'
+          onClick={() => {navigate(`/contribute`)}}
+          cardTitle='Contribute'
+          cardContent={<p>Got a recipe to share? Click here to post a recipe.</p>}
+        />
+      </div>
     </Layout>
   )
 }
 
-export default Dashboard
+export default Dashboard;

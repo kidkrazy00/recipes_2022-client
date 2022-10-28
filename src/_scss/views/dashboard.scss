@@ -9,5 +9,17 @@
         $margin: 0 auto
     );
     animation: fadeUp var(--duration);
+
+    .tiles {
+        @include containerLayout(
+            grid,
+            $rows: auto, 
+            $columns: repeat(2, 1fr),
+            $gap: var(--size-root-full), 
+            $padding: 0,
+            $width: var(--size-recipe),
+            $margin: 0 auto
+        );
+    }
 }
 

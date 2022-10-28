@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { fetchRecipes } from '../services/fetchRecipes'
-import { Link } from 'react-router-dom'
+import { fetchRecipes } from '../services/fetchRecipes';
+import Card from '../components/Card';
+import { useNavigate } from 'react-router-dom';
 
 // layout
 import Layout from '../layout/Layout'
 
-const RecipesPage = ({isAuthenticated, isLoading}) => {
+const RecipesPage = ({ isAuthenticated, isLoading }) => {
+  let navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('all');
   const [data, setData] = useState([]);
   const urlPath = `${process.env.REACT_APP_CDN}`;
@@ -17,7 +19,6 @@ const RecipesPage = ({isAuthenticated, isLoading}) => {
       .then(data => {
         if (mounted) {
           setData(data.items)
-          // console.log('data', data)
         }
       })
     return () => mounted = false;
@@ -26,9 +27,9 @@ const RecipesPage = ({isAuthenticated, isLoading}) => {
   const optionsArray = data.map((node, index) => {
     return node.category;
   });
-  
+
   const uniqueOptions = optionsArray.filter((node, index, array) => array.indexOf(node) === index);
-  
+
   const options = uniqueOptions.map((optionValue, index) => (
     <option key={index} value={optionValue}>{optionValue}</option>
   ));
@@ -49,8 +50,13 @@ const RecipesPage = ({isAuthenticated, isLoading}) => {
   const itemList = (
     data.map((node, index) => (
       selectedOption === node.category || selectedOption === 'all'
-      ? <li key={index} className="card" >
-          <Link to={`/recipes/${node.id}`}>
+        ?
+        <Card
+          cardType='recipeItem'
+          className="card"
+          key={index}
+          onClick={() => { navigate(`/recipes/${node.id}`) }}
+          cardMedia={
             <div className={'card__icon--' + node.category}>
               <img
                 width=""
@@ -61,40 +67,40 @@ const RecipesPage = ({isAuthenticated, isLoading}) => {
                 loading="auto"
               />
             </div>
-            <div className="card__content">
-              <h3 className="card__title">{node.title}</h3>
-              <small className="card__author">Contributed by: {node.name === 'kidkrazy' ? 'Keith' : node.name}</small>
-            </div>
-          </Link>
-        </li>
+          }
+          cardTitle={node.title}
+          cardMeta={
+            <small className="card__author">
+              Contributed by: {node.name === 'kidkrazy' ? 'Keith' : node.name}
+            </small>
+          }
+        />
         : ''
     ))
   )
 
-  // console.log('data', data.items)
-
   if (isLoading) {
     return <div>Loading ...</div>;
   }
-  
+
   return (
     <>
-    {data 
-      ?
-      <Layout
-        pageTitle="Recipes"
-        pageClass="recipe__list"
-        userInteractions={itemFilter}
-        isAuthenticated={isAuthenticated}
-      >
-        <ul>
-          {itemList}
-        </ul>
-      </Layout>
-      : 'loading'
-    }
+      {data
+        ?
+        <Layout
+          pageTitle="Recipes"
+          pageClass="recipe__list"
+          userInteractions={itemFilter}
+          isAuthenticated={isAuthenticated}
+        >
+          <ul>
+            {itemList}
+          </ul>
+        </Layout>
+        : 'loading'
+      }
     </>
   )
 }
 
-export default RecipesPage
+export default RecipesPage;

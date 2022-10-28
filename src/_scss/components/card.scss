@@ -1,0 +1,40 @@
+.card {
+    display: flex;
+    gap: var(--size-root-half);
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: var(--size-root-full);
+    border-radius: var(--border-radius);
+    border: var(--focus-border-hidden);
+    box-shadow: var(--box-shadow-ui);
+    background-color: var(--color-card-background);
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        .card__title { 
+            color: var(--color-link-h);
+        }
+    }
+
+    &:focus-visible {
+        color: var(--color-link-h);
+        border: var(--focus-border-active);
+    }
+
+    &:hover,
+    &:focus:not(:focus-visible) {
+        color: var(--color-link-h);
+    }
+
+    &__title {
+        color: var(--color-card-title);
+        font-size: var(--size-card-title);
+        transition: all var(--duration-quick);
+    }
+
+    &__content {
+        color: var(--color-content);
+        font-size: var(--size-font);
+    }
+}
