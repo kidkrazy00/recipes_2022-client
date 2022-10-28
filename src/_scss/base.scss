@@ -19,7 +19,6 @@ html, body {
 
 :focus {
     outline: none;
-    // outline: 1px dashed red;
 }
 
 h1,
@@ -101,6 +100,17 @@ details {
         display: flex; // stops chrome showing the markers even though the display on them is set
         justify-content: space-between;
         justify-items: space-between;
+
+        &:focus-visible {
+            padding: 0 0 0 var(--size-root-half);
+            color: var(--color-link-h);
+            border: var(--focus-border-active);
+        }
+
+        &:hover,
+        &:focus:not(:focus-visible) {
+            color: var(--color-link-h);
+        }
 
         & > span {
             flex: 1;

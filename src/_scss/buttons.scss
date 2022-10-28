@@ -5,7 +5,9 @@
         cursor: default;
     }
     
-    &--disabled {
+    
+    &:disabled,
+    &[disabled] {
         opacity: 0;
         cursor: default;
     }
@@ -48,6 +50,8 @@
                 content: "\f053";
             }
         }
+
+        @include btnAlternate;
     }
 
     &__next {
@@ -72,6 +76,8 @@
                 content: "\f054";
             }
         }
+
+        @include btnAlternate;
     }
 
     &__list {

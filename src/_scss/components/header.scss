@@ -21,7 +21,18 @@
     & .logo {
         grid-area: home;
         width: var(--size-brand);
+        border: var(--focus-border-hidden);
         cursor: pointer;
+
+        &:focus-visible {
+            color: var(--color-link-h);
+            border: var(--focus-border-active);
+        }
+    
+        &:hover,
+        &:focus:not(:focus-visible) {
+            color: var(--color-link-h);
+        }
         
         &:hover {
             filter: drop-shadow(0px 0.25rem 0.125rem rgba(0, 0, 0, 0.5));
