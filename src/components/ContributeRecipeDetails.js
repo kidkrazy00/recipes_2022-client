@@ -104,7 +104,7 @@ const RecipeDetails = ({ previousStep, nextStep, title, setTitle, category, setC
 
 RecipeDetails.propTypes = {
   title: PropTypes.string,
-  setCategory: PropTypes.string,
+  category: PropTypes.string,
   ingredients: PropTypes.string,
   directions: PropTypes.string
 };
