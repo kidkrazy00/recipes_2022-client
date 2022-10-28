@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import Button from "../components/Button"
+import TagButton from "./TagButton"
 
 const LogoutButton = () => {
   const { logout } = useAuth0();
@@ -11,15 +11,15 @@ const LogoutButton = () => {
     });
 
   return (
-    <Button
+    <TagButton
       buttonType="button"
-      cClass="btn__submit"
+      className="btn__submit"
       type="submit"
       title="Logout"
       name="Logout"
       value="Logout"
       icon="true"
-      click={() => logoutWithRedirect()}
+      onClick={() => logoutWithRedirect()}
     />
   )
 }

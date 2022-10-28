@@ -3,61 +3,67 @@ import React, { } from "react";
 const Button = (props) => {
     
     const {
-        buttonType, cClass, disabled, click, title, icon, destination, target,
-        name, type, value
+        buttonType, className, disabled, onClick, title, icon, destination, target,
+        name, type, value, aria, tabIndex, children
     } = props;
 
     return (
         <>
             {buttonType === 'anchor'
                 ? <a
-                    className={disabled ? 'cClass cClass' + '--disabled' : cClass}
-                    onClick={click}
+                    className={className}
+                    onClick={onClick}
+                    aria-label={aria ? aria : title}
                     href={destination}
                     target={target}
-                    rel="norefferer"
-                    tabIndex="0"
+                    rel="norefferer" 
+                    tabIndex={tabIndex ? tabIndex : '0'}
+                    disabled={disabled}
                 >
                     {icon
                         ? <i />
                         : ''
                     }
                     {title}
+                    {children}
                 </a>
                 : ''
             }
 
             {buttonType === 'button'
                 ? <button
-                    disabled={disabled}
-                    className={disabled ? cClass + ' btn--disabled' : cClass}
-                    onClick={click}
+                    className={className}
+                    onClick={onClick}
                     name={name}
-                    aria-label={name}
+                    aria-label={aria ? aria : name}
+                    buttontype={type}
                     value={value}
-                    type={type}
-                    tabIndex="0"
+                    tabIndex={tabIndex ? tabIndex : '0'}
+                    disabled={disabled}
                 >
                     {icon
                         ? <i />
                         : ''
                     }
                     {title}
+                    {children}
                 </button>
                 : ''
             }
 
             {buttonType === 'div'
                 ? <div
-                    className={disabled ? cClass + '--disabled' : cClass}
-                    tabIndex="0"
-                    // onClick={click}
+                    className={className}
+                    onClick={onClick}
+                    tabIndex={tabIndex ? tabIndex : '0'}
+                    disabled={disabled}
                 >
                     {icon
                         ? <i />
                         : ''
                     }
                     {title}
+                    {children}
                 </div>
                 : ''
             }

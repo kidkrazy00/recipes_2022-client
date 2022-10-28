@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import Button from "./Button";
+import TagButton from "./TagButton";
 
 const UserDetials = ({ nextStep, name, setName, email, setEmail }) => {
 
@@ -33,9 +33,9 @@ const UserDetials = ({ nextStep, name, setName, email, setEmail }) => {
           />
         </div>
       </fieldset>
-      <Button
+      <TagButton
         buttonType="button"
-        cClass="btn__next"
+        className="btn__next"
         type="button"
         title="Next"
         icon="true"
@@ -43,7 +43,7 @@ const UserDetials = ({ nextStep, name, setName, email, setEmail }) => {
           name === '' ||
           email === '' ? 'disabled' : ''
         }
-        click={nextStep}
+        onClick={nextStep}
       />
     </>
   )

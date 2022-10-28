@@ -64,21 +64,21 @@ const Login = ({ setToken }) => {
         </fieldset>
         <Button
           buttonType="button"
-          cClass="btn__submit"
+          className="btn__submit"
           type="submit"
           title="Log In"
           name="Log In"
           value="Log In"
           icon="true"
-          click={(e) => handleSubmit(e)}
+          onClick={(e) => handleSubmit(e)}
         />
       </form>
     </Layout>
   )
 }
 
-export default Login
-
 Login.propTypes = {
   setToken: PropTypes.func.isRequired
 }
+
+export default Login

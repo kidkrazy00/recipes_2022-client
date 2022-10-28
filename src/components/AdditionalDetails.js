@@ -22,20 +22,20 @@ const AdditionalInfo = ({ previousStep, nextStep, message, setMessage }) => {
       </fieldset>
       <Button
         buttonType="button"
-        cClass="btn__back"
+        className="btn__back"
         type="button"
         title="Previous"
         icon="true"
-        click={previousStep}
+        ={previousStep}
       />
 
       <Button
         buttonType="button"
-        cClass="btn__next"
+        className="btn__next"
         type="button"
         title="Next"
         icon="true"
-        click={nextStep}
+        ={nextStep}
       />
     </>
   )

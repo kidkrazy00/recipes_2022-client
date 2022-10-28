@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import { dbRecipePost } from "../services/fetchContribute";
-import UserDetails from "../components/UserDetails";
-import RecipeDetails from "../components/RecipeDetails";
-import Confirmation from "../components/Confirmation";
+// import UserDetails from "../components/ContributeUserDetails";
+import RecipeDetails from "../components/ContributeRecipeDetails";
+import Confirmation from "../components/ContributeConfirmation";
 
 // layout
 import Layout from '../layout/Layout'
@@ -40,17 +40,17 @@ const Contribute = ({ user, isAuthenticated, isLoading }, ...props) => {
 
   const renderSwitch = (step) => {
     switch (step) {
+      // case 1:
+      //   return (
+      //     <UserDetails
+      //       name={name}
+      //       setName={setName}
+      //       email={email}
+      //       setEmail={setEmail}
+      //       nextStep={nextStep}
+      //     />
+      //   )
       case 1:
-        return (
-          <UserDetails
-            name={name}
-            setName={setName}
-            email={email}
-            setEmail={setEmail}
-            nextStep={nextStep}
-          />
-        )
-      case 2:
         return (
           <RecipeDetails
             title={title}
@@ -65,7 +65,7 @@ const Contribute = ({ user, isAuthenticated, isLoading }, ...props) => {
             previousStep={previousStep}
           />
         )
-      case 3:
+      case 2:
         return (
           <Confirmation
             name={name}
@@ -121,7 +121,7 @@ const Contribute = ({ user, isAuthenticated, isLoading }, ...props) => {
       user={user}
       isAuthenticated={isAuthenticated}
     >
-      <form id="contribute-form" className="" onSubmit={onSubmit} method="POST">
+      <form id="contribute-form" className="contribute__form" onSubmit={onSubmit} method="POST">
         {
           renderSwitch(step)
         }

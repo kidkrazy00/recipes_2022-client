@@ -1,20 +1,20 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import Button from "../components/Button"
+import TagButton from "../components/TagButton"
 
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <Button
+    <TagButton
       buttonType="button"
-      cClass="btn__submit"
+      className="btn__submit"
       type="submit"
       title="Login"
       name="Login"
       value="Login"
       icon="true"
-      click={() => loginWithRedirect({})}
+      onClick={() => loginWithRedirect({})}
     />
   )
 }

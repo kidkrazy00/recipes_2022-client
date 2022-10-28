@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchRecipes } from '../services/fetchRecipes'
 import { useParams, useNavigate } from 'react-router-dom'
-import Button from '../components/Button'
+import TagButton from '../components/TagButton'
 
 //layout
 import Layout from '../layout/LayoutRecipe'
@@ -22,7 +22,6 @@ const RecipePost = ({ user, isAuthenticated, isLoading }) => {
       .then(data => {
         if (mounted) {
           setData(data.items[paramsId])
-          // console.log('data: ', data)
         }
       })
     return () => mounted = false;
@@ -30,13 +29,13 @@ const RecipePost = ({ user, isAuthenticated, isLoading }) => {
 
   const controls = (
     <div className='controls'>
-      <Button
+      <TagButton
         buttonType="button"
-        cClass="btn__back"
+        className="btn__back"
         icon={true}
         name="Back"
         title="Back"
-        click={() => navigate(-1)}
+        onClick={() => navigate(-1)}
       />
     </div>
   )

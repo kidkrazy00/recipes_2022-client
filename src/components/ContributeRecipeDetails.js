@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import Button from "./Button";
+import TagButton from "./TagButton";
 
 const RecipeDetails = ({ previousStep, nextStep, title, setTitle, category, setCategory, ingredients, setIngredients, directions, setDirections }) => {
 
@@ -67,27 +67,27 @@ const RecipeDetails = ({ previousStep, nextStep, title, setTitle, category, setC
           />
         </div>
       </fieldset>
-      <Button
+      {/* <TagButton
         buttonType="button"
-        cClass="btn__back"
+        className="btn__back"
         type="button"
         title="Previous"
         icon="true"
-        click={previousStep}
-      />
-      <Button
+        onClick={previousStep}
+      /> */}
+      <TagButton
         buttonType="button"
-        cClass="btn__next"
+        className="btn__next"
         type="button"
         title="Next"
         icon="true"
-        click={nextStep}
         disabled={
           title === '' ||
           category === '' ||
           ingredients === '' ||
           directions === '' ? 'disabled' : ''
         }
+        onClick={nextStep}
       />
     </>
   )

@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useMediaQuery } from 'react-responsive'
 import { Link, NavLink } from 'react-router-dom'
 import Brand from './Brand'
-import Button from './Button';
+import TagButton from './TagButton';
 import LogoutButton from './LogoutButton';
 
 const Nav = ({ siteTitle }) => {
@@ -16,8 +16,8 @@ const Nav = ({ siteTitle }) => {
   }
 
   let authenticated = [
-    { name: "Contribute", destination: "contribute/" },
-    { name: "Recipes", destination: "recipes/" },
+    { name: "Contribute", destination: "contribute" },
+    { name: "Recipes", destination: "recipes" },
   ]
 
   let inauthenticated = [
@@ -40,7 +40,7 @@ const Nav = ({ siteTitle }) => {
 
   const Logo = (
     <Link
-      to="/dashboard/"
+      to="/dashboard"
       className='logo'
       name='Home'
       aria-label='Home'
@@ -71,11 +71,11 @@ const Nav = ({ siteTitle }) => {
       </Default>
       <Mobile>
         {isAuthenticated ? Logo : ''}
-        <Button
+        <TagButton
           buttonType='button'
-          cClass={isVisible ? "toggle toggle--close" : "toggle"}
+          className={isVisible ? "toggle toggle--close" : "toggle"}
           name={isVisible ? "navigation close" : "navigation open"}
-          click={(e) => toggleNav(e)}
+          onClick={(e) => toggleNav(e)}
         />
         {isVisible ?
           <nav className="nav">{navLinks}
