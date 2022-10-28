@@ -13,57 +13,46 @@ const Confirmation = ({ previousStep, name, email, title, category, ingredients,
   let ingredientsErr = ('Hey now, a recipe needs ingredients.')
   let directionsErr = ('Lacking some direction here.')
 
+  // TODO option, make functions to itterate over form elements to reduce redundancy
+  // const validate = (value, isErr, result) => {
+  //   value === undefined || value === '' ? <p className="error">{isErr}</p> : result
+  // }
+
+  const reCap = (
+    name === undefined || name === '',
+    email === undefined || email === '',
+    title === undefined || title === '',
+    category === undefined || category === '',
+    ingredients === undefined || ingredients === '',
+    directions === undefined || directions === ''
+      ? <p>Oh no, it looks like you missed something.</p>
+      : <p>Here's what you're going to contribute.</p>
+  )
+
   return (
     <>
-      {/* {
-        name === undefined || name === '' &&
-        email === undefined || email === '' &&
-        title === undefined || title === '' &&
-        category === undefined || category === '' &&
-        ingredients === undefined || ingredients === '' &&
-        directions === undefined || directions === ''
-          ? <p>Oh no, it looks like you missed something.</p>
-          : <p>Here's what you're going to contribute.</p>
-      } */}
+      {reCap}
       <fieldset>
-        {name === undefined || name === '' ?
-          <p className="error">{nameErr}</p>
-          : <p><b>Contributed by: </b>{name}</p>
-        }
-        {email === undefined || email === '' ?
-          <p className="error">{emailErr}</p>
-          : <p><b>Email: </b>{email}</p>
-        }
-        <hr />
-        {title === undefined || title === '' ?
-          <p className="error">{titleErr}</p>
-          : <h3>{title}</h3>
-        }
-        {category === undefined || category === '' ?
-          <p className="error">{categoryErr}</p>
-          : <>
-          <p><b>Category: </b>{category}
+        <h2>
           <div className={'contribute__form--icon'}>
-              <img
-                width=""
-                height=""
-                src={imgPath + category.toLowerCase()}
-                data-src={imgPath + category.toLowerCase()}
-                alt={category}
-                loading="auto"
-              />
-            </div>
-          </p>
-          </>
-        }
-        {ingredients === undefined || ingredients === '' ?
-          <p className="error">{ingredientsErr}</p>
-          : <><h4>Ingredients: </h4><p>{ingredients}</p></>
-        }
-        {directions === undefined || directions === '' ?
-          <p className="error">{directionsErr}</p>
-          : <><h4>Directions: </h4><p>{directions}</p></>
-        }
+            <img
+              width=""
+              height=""
+              src={imgPath + category.toLowerCase()}
+              data-src={imgPath + category.toLowerCase()}
+              alt={category}
+              loading="auto"
+            />
+            {title}
+          </div>
+        </h2>
+        <p>Category: {category}</p>
+
+        <h4>Ingredients: </h4>
+        <p>{ingredients}</p>
+
+        <h4>Directions: </h4>
+        <p>{directions}</p>
       </fieldset>
       <TagButton
         buttonType="button"
