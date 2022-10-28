@@ -79,27 +79,22 @@ const RecipesPage = ({ isAuthenticated, isLoading }) => {
     ))
   )
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return <div>Loading ...</div>;
   }
 
   return (
-    <>
-      {data
-        ?
-        <Layout
-          pageTitle="Recipes"
-          pageClass="recipe__list"
-          userInteractions={itemFilter}
-          isAuthenticated={isAuthenticated}
-        >
-          <ul>
-            {itemList}
-          </ul>
-        </Layout>
-        : 'loading'
-      }
-    </>
+    <Layout
+      pageTitle="Recipes"
+      pageClass="recipe__list"
+      userInteractions={itemFilter}
+      isAuthenticated={isAuthenticated}
+    >
+      <ul>
+        {itemList}
+      </ul>
+    </Layout>
+
   )
 }
 

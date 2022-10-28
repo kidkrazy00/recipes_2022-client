@@ -63,33 +63,27 @@ const RecipePost = ({ user, isAuthenticated, isLoading }) => {
     <time dateTime={data.date}>{data.date}</time>
   )
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return <div>Loading ...</div>;
   }
 
   return (
-    <>
-      {data
-        ?
-        < Layout
-          pageTitle={data.title}
-          pageClass="recipe"
-          user={user}
-          key={params.id}
-          isAuthenticated={isAuthenticated}
-        >
-          {/* {date} */}
-          {heroImage}
-          <small className="card__author">Contributed by: {data.name}</small>
-          <h4>ingredients</h4>
-          <p className="recipe--ingredients">{data.ingredients}</p>
-          <h4>directions</h4>
-          <p className="recipe--directions">{data.directions}</p>
-          {controls}
-        </Layout>
-        : 'loding'
-      }
-    </>
+    < Layout
+      pageTitle={data.title}
+      pageClass="recipe"
+      user={user}
+      key={params.id}
+      isAuthenticated={isAuthenticated}
+    >
+      {/* {date} */}
+      {heroImage}
+      <small className="card__author">Contributed by: {data.name}</small>
+      <h4>ingredients</h4>
+      <p className="recipe--ingredients">{data.ingredients}</p>
+      <h4>directions</h4>
+      <p className="recipe--directions">{data.directions}</p>
+      {controls}
+    </Layout>
   )
 }
 
