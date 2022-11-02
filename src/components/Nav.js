@@ -71,12 +71,14 @@ const Nav = ({ siteTitle }) => {
       </Default>
       <Mobile>
         {isAuthenticated ? Logo : ''}
-        <TagButton
-          buttonType='button'
-          className={isVisible ? "toggle toggle--close" : "toggle"}
-          name={isVisible ? "navigation close" : "navigation open"}
-          onClick={(e) => toggleNav(e)}
-        />
+        {isAuthenticated ?
+          <TagButton
+            buttonType='button'
+            className={isVisible ? "toggle toggle--close" : "toggle"}
+            name={isVisible ? "navigation close" : "navigation open"}
+            onClick={(e) => toggleNav(e)}
+          />
+          : ''}
         {isVisible ?
           <nav className="nav">{navLinks}
             {isAuthenticated ? <LogoutButton /> : ''}
