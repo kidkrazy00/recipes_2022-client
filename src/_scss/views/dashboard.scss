@@ -20,6 +20,16 @@
             $width: var(--size-recipe),
             $margin: 0 auto
         );
+
+        @include breakpoint(small) {
+            grid-template: auto/1fr;
+        }
+    }
+
+    .card {
+        @include breakpoint(small) {
+            flex-direction: initial;
+        }
     }
 }
 
