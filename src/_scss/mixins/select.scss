@@ -6,9 +6,9 @@
     align-items: center;
     justify-content: space-between;
     flex: $grow $shrink $flex;
-    height: $height;
+    min-height: $height;
     font-size: var(--size-font);
-    padding: var(--size-root-half) calc(#{var(--size-root-full)} * 2) var(--size-root-half) var(--size-root-half);
+    padding: var(--size-root-full) calc(#{var(--size-root-full)} * 2) var(--size-root-full) var(--size-root-full);
 
     &::-ms-expand {
         display: none;
