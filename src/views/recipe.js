@@ -1,32 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { fetchRecipes } from '../services/fetchRecipes'
 import { useParams, useNavigate } from 'react-router-dom'
 import TagButton from '../components/TagButton'
 
 //layout
 import Layout from '../layout/LayoutRecipe'
 
-const RecipePost = ({ user, isAuthenticated, isLoading }) => {
+const RecipePost = ({ user, isAuthenticated, isLoading, data }) => {
   let navigate = useNavigate();
   let params = useParams();
   let paramsSlug = params.slug;
 
-  const [data, setData] = useState([]);
   const urlPath = `${process.env.REACT_APP_CDN}`;
   const imgPath = urlPath + 'icons/icons_';
-
-
-  useEffect(() => {
-    let mounted = true;
-
-    fetchRecipes()
-      .then(data => {
-        if (mounted) {
-          setData(data.items.find(e => e.slug === paramsSlug))
-        }
-      })
-    return () => mounted = false;
-  }, [paramsSlug]);
+  const recipeData = data.find(e => e.slug === paramsSlug);
 
   const controls = (
     <div className='controls'>
@@ -47,41 +33,41 @@ const RecipePost = ({ user, isAuthenticated, isLoading }) => {
     >
       <source
         media=""
-        srcSet={imgPath + data.icon}
+        srcSet={imgPath + recipeData.icon}
       />
       <img
         width=""
         height=""
-        src={imgPath + data.icon}
-        data-src={imgPath + data.icon}
-        alt={imgPath + data.icon}
+        src={imgPath + recipeData.icon}
+        data-src={imgPath + recipeData.icon}
+        alt={imgPath + recipeData.icon}
         loading="auto"
       />
     </picture>
   )
 
   const date = (
-    <time dateTime={data.date}>{data.date}</time>
+    <time dateTime={recipeData.date}>{recipeData.date}</time>
   )
 
-  if (isLoading || !data) {
+  if (isLoading || !recipeData) {
     return <div>Loading ...</div>;
   }
 
   return (
     < Layout
-      pageTitle={data.title}
+      pageTitle={recipeData.title}
       pageClass="recipe"
       user={user}
       key={paramsSlug}
       isAuthenticated={isAuthenticated}
     >
       {heroImage}
-      <small className="card__author">Contributed by: {data.name}</small>
+      <small className="card__author">Contributed by: {recipeData.name}</small>
       <h4>ingredients</h4>
-      <p className="recipe--ingredients">{data.ingredients}</p>
+      <p className="recipe--ingredients">{recipeData.ingredients}</p>
       <h4>directions</h4>
-      <p className="recipe--directions">{data.directions}</p>
+      <p className="recipe--directions">{recipeData.directions}</p>
       {controls}
     </Layout>
   )

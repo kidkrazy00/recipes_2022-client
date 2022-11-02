@@ -6,23 +6,11 @@ import { useNavigate } from 'react-router-dom';
 // layout
 import Layout from '../layout/Layout'
 
-const RecipesPage = ({ isAuthenticated, isLoading }) => {
+const RecipesPage = ({ isAuthenticated, isLoading, data }) => {
   let navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('all');
-  const [data, setData] = useState([]);
   const urlPath = `${process.env.REACT_APP_CDN}`;
   const imgPath = urlPath + 'icons/icons_';
-
-  useEffect(() => {
-    let mounted = true;
-    fetchRecipes()
-      .then(data => {
-        if (mounted) {
-          setData(data.items)
-        }
-      })
-    return () => mounted = false;
-  }, []);
 
   const optionsArray = data.map((node, index) => {
     return node.category;

@@ -1,6 +1,7 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { useRoutes } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react";
+import { fetchRecipes } from './services/fetchRecipes';
 
 import Landing from "./views/landing"
 import About from "./views/about"
@@ -13,6 +14,7 @@ import Recipe from "./views/recipe"
 
 const App = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const [data, setData] = useState([]);
 
   let inauthenticatedRoutes = [
     {
@@ -56,6 +58,7 @@ const App = () => {
           index: true,
           element: <Recipes
             pageTitle={Recipes}
+            data={data}
             user={user}
             isAuthenticated={isAuthenticated}
             isLoading={isLoading}
@@ -64,6 +67,7 @@ const App = () => {
         {
           path: ":slug",
           element: <Recipe
+            data={data}
             user={user}
             isAuthenticated={isAuthenticated}
             isLoading={isLoading}
@@ -84,6 +88,7 @@ const App = () => {
       path: "/dashboard",
       element: <Dashboard
         pageTitle={Dashboard}
+        data={data}
         user={user}
         isAuthenticated={isAuthenticated}
         isLoading={isLoading}
@@ -102,9 +107,25 @@ const App = () => {
   let inauthenticated = useRoutes(inauthenticatedRoutes);
   let authenticated = useRoutes(authenticatedRoutes);
 
+  useEffect(() => {
+    let mounted = true;
+    
+    if (isAuthenticated) {
+      fetchRecipes()
+        .then(data => {
+          if (mounted) {
+            setData(data.items)
+            console.log(data.items)
+          }
+        })
+      return () => mounted = false;
+    }
+  }, [isAuthenticated]);
+
   if (!isAuthenticated) {
     return inauthenticated
   }
+
   return authenticated
 }
 
