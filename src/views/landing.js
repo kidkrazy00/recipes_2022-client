@@ -8,11 +8,10 @@ import LoginButton from '../components/LoginButton';
 const Landing = () => {
 
   let greetingMessage = (
-    <>
-      <p>
-        This site has been built to preserve and share family recipes.
-      </p>
-    </>
+    <small>
+      {/* This site has been built to preserve and share family recipes. */}
+      Please login to continue.
+    </small>
   )
 
   return (
@@ -23,10 +22,10 @@ const Landing = () => {
       <form method="post">
         <Brand type='color' />
         <fieldset>
-          {/* <legend> Family Recipies</legend> */}
-          {greetingMessage}
+          <legend> Family Recipies</legend>
+          <LoginButton />
         </fieldset>
-        <LoginButton />
+          {greetingMessage}
       </form>
     </Layout>
   )

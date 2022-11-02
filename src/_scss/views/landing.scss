@@ -15,20 +15,20 @@
         line-height: calc(var(--line-height) * 2);
         margin: 0 auto;
         padding: var(--size-root-full);
-        box-shadow: var(--box-shadow-ui);
         border-radius: var(--border-radius);
-        background-color: var(--color-login-background);
+        // background-color: var(--color-login-background);
+        // box-shadow: var(--box-shadow-ui);
         animation: fadeUp var(--duration);
 
         img,
         svg {
-            --size-icon: 100px;
+            --size-icon: 200px;
 
 			flex: 1 0 100%;
 			object-fit: contain;
 			height: var(--size-icon);
             margin-top: calc((var(--size-icon) / 1.125) * -1);
-            filter: drop-shadow(0px 0.15rem .125rem rgba(255, 255, 255, 0.2));            
+            filter: drop-shadow(0px 0.15rem .125rem rgba(255, 255, 255, 0.2));
 		}
 
         fieldset {
@@ -39,8 +39,16 @@
                 $gap: var(--size-root-full), 
                 $padding: var(--size-root-full),
                 $width: var(--size-max),
-                $margin: 0 0 var(--size-root-full) 0
+                $margin: 0 //0 0 var(--size-root-full) 0
             );
+        }
+
+        legend {
+            align-items: center;
+            color: var(--color-heading);
+            font-size: calc(var(--size-font)*2.25);
+            text-shadow: var(--text-shadow);
+            animation: fadeIn var(--duration);
         }
 
         label {
