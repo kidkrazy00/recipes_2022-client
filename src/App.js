@@ -115,7 +115,7 @@ const App = () => {
         .then(data => {
           if (mounted) {
             setData(data.items)
-            console.log(data.items)
+            // console.log(data.items)
           }
         })
       return () => mounted = false;
