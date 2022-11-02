@@ -7,7 +7,7 @@
     justify-content: space-between;
     flex: $grow $shrink $flex;
     height: $height;
-    font-size: var(--size-root-full);
+    font-size: var(--size-font);
     padding: var(--size-root-half) calc(#{var(--size-root-full)} * 2) var(--size-root-half) var(--size-root-half);
 
     &::-ms-expand {
