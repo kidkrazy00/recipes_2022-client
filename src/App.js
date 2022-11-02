@@ -58,7 +58,7 @@ const App = () => {
           />
         },
         {
-          path: ":id",
+          path: ":slug",
           element: <Recipe
             isAuthenticated={isAuthenticated}
             user={user}

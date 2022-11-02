@@ -9,7 +9,7 @@ import Layout from '../layout/LayoutRecipe'
 const RecipePost = ({ user, isAuthenticated, isLoading }) => {
   let navigate = useNavigate();
   let params = useParams();
-  let paramsSlug = params.id;
+  let paramsSlug = params.slug;
 
   const [data, setData] = useState([]);
   const urlPath = `${process.env.REACT_APP_CDN}`;
