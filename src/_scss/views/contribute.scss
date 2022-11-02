@@ -92,7 +92,7 @@
             i {
                 position: absolute;
                 align-self: center;
-                right: 0;
+                right: var(--size-root-half);
                 width: var(--size-icon-large);
                 height: var(--size-icon-large);
                 pointer-events: none;
