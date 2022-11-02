@@ -20,10 +20,11 @@ const Card = (props) => {
       {cardType === 'default'
         ?
           <div
-            className={disabled ? className + ' card--disabled' : className + ' card'}
+            className={disabled ? className : 'card'}
             onClick={onClick}
             onKeyPress={onKeyPress ? onKeyPress : onClick}
             tabIndex="0"
+            disabled={disabled ? disabled : ''}
           >
             {cardMedia ? cardMedia : ''}
             <div className="card__content">
@@ -39,10 +40,11 @@ const Card = (props) => {
       {cardType === 'recipeItem'
         ? <>
           <li
-            className={disabled ? className + '--disabled' : className}
+            className={className ? className : 'card'}
             onClick={onClick}
             onKeyPress={onKeyPress ? onKeyPress : onClick}
             tabIndex="0"
+            disabled={disabled ? disabled : ''}
           >
             {cardMedia ? cardMedia : ''}
             <div className="card__content">
