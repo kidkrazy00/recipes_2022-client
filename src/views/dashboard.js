@@ -19,7 +19,7 @@ const Dashboard = ({ user, isAuthenticated, isLoading }) => {
       user={user}
       isAuthenticated={isAuthenticated}
     >
-      <p>Hey {user.nickname} welcome back to the family recipes app. Here you can find a collection of recipes contributed from other memebers of the family.</p>
+      <p>Hey {user.nickname}, welcome back to the family recipes app. Here you can find a collection of recipes contributed from other memebers of the family.</p>
       <small>Contributed recipes held for review and will not appear immediately in the recipes list.</small>
       
       <hr />

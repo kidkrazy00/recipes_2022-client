@@ -21,6 +21,10 @@
             $margin: 0
         );
         
+        & > p {
+            grid-column: 1/-1;
+        }
+
         fieldset {
             grid-column: 1/-1;
             @include containerLayout(
