@@ -3,12 +3,15 @@ import LayoutBare from "../layout/LayoutBare"
 import Nag from "../components/Nag"
 
 // markup
-const NotFoundPage = () => {
+const Oops = ({ isAuthenticated, isLoading }) => {
+
   return (
     <LayoutBare pageClass="oops">
-      <Nag className="nag" />
+      {!isLoading 
+      ? <Nag className="nag" isAuthenticated={isAuthenticated} />
+      : ''}
     </LayoutBare>
   )
 }
 
-export default NotFoundPage
+export default Oops

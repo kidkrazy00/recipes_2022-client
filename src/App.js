@@ -33,6 +33,8 @@ const App = () => {
       path: "*",
       element: <Oops
         pageClass="oops"
+        isAuthenticated={false}
+        isLoading={isLoading}
       />
     }
   ];
@@ -42,8 +44,9 @@ const App = () => {
       path: "/",
       element: <Dashboard
         pageTitle={Dashboard}
-        isAuthenticated={isAuthenticated}
         user={user}
+        isAuthenticated={isAuthenticated}
+        isLoading={isLoading}
       />
     },
     {
@@ -53,15 +56,17 @@ const App = () => {
           index: true,
           element: <Recipes
             pageTitle={Recipes}
-            isAuthenticated={isAuthenticated}
             user={user}
+            isAuthenticated={isAuthenticated}
+            isLoading={isLoading}
           />
         },
         {
           path: ":slug",
           element: <Recipe
-            isAuthenticated={isAuthenticated}
             user={user}
+            isAuthenticated={isAuthenticated}
+            isLoading={isLoading}
           />
         }
       ]
@@ -70,16 +75,26 @@ const App = () => {
       path: "/contribute",
       element: <Contribute
         pageTitle={Contribute}
-        isAuthenticated={isAuthenticated}
         user={user}
+        isAuthenticated={isAuthenticated}
+        isLoading={isLoading}
       />
     },
     {
       path: "/dashboard",
       element: <Dashboard
         pageTitle={Dashboard}
-        isAuthenticated={isAuthenticated}
         user={user}
+        isAuthenticated={isAuthenticated}
+        isLoading={isLoading}
+      />
+    },
+    {
+      path: "*",
+      element: <Oops
+        pageClass="oops"
+        isAuthenticated={isAuthenticated}
+        isLoading={isLoading}
       />
     }
   ];
