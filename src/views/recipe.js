@@ -9,11 +9,12 @@ import Layout from '../layout/LayoutRecipe'
 const RecipePost = ({ user, isAuthenticated, isLoading }) => {
   let navigate = useNavigate();
   let params = useParams();
-  let paramsId = params.id - 1;
+  let paramsSlug = params.id;
 
   const [data, setData] = useState([]);
   const urlPath = `${process.env.REACT_APP_CDN}`;
   const imgPath = urlPath + 'icons/icons_';
+
 
   useEffect(() => {
     let mounted = true;
@@ -21,11 +22,11 @@ const RecipePost = ({ user, isAuthenticated, isLoading }) => {
     fetchRecipes()
       .then(data => {
         if (mounted) {
-          setData(data.items[paramsId])
+          setData(data.items.find(e => e.slug === paramsSlug))
         }
       })
     return () => mounted = false;
-  }, [paramsId]);
+  }, [paramsSlug]);
 
   const controls = (
     <div className='controls'>
@@ -53,7 +54,7 @@ const RecipePost = ({ user, isAuthenticated, isLoading }) => {
         height=""
         src={imgPath + data.icon}
         data-src={imgPath + data.icon}
-        alt={data.icon}
+        alt={imgPath + data.icon}
         loading="auto"
       />
     </picture>
@@ -72,10 +73,9 @@ const RecipePost = ({ user, isAuthenticated, isLoading }) => {
       pageTitle={data.title}
       pageClass="recipe"
       user={user}
-      key={params.id}
+      key={paramsSlug}
       isAuthenticated={isAuthenticated}
     >
-      {/* {date} */}
       {heroImage}
       <small className="card__author">Contributed by: {data.name}</small>
       <h4>ingredients</h4>
@@ -87,4 +87,4 @@ const RecipePost = ({ user, isAuthenticated, isLoading }) => {
   )
 }
 
-export default RecipePost
+export default RecipePost;

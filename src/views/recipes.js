@@ -55,7 +55,7 @@ const RecipesPage = ({ isAuthenticated, isLoading }) => {
           cardType='recipeItem'
           className="card"
           key={index}
-          onClick={() => { navigate(`/recipes/${node.id}`) }}
+          onClick={() => { navigate(`/recipes/${node.slug}`) }}
           cardMedia={
             <div className={'card__icon--' + node.category}>
               <img
