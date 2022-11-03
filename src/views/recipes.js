@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { fetchRecipes } from '../services/fetchRecipes';
+import React, { useState } from "react";
 import Card from '../components/Card';
 import { useNavigate } from 'react-router-dom';
 
