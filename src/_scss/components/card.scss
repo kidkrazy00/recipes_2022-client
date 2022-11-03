@@ -1,7 +1,7 @@
 .card {
     display: flex;
     gap: var(--size-root-half);
-    align-items: center;
+    align-items: start;
     padding: var(--size-root-full);
     border-radius: var(--border-radius);
     border: var(--focus-border-hidden);
