@@ -29,15 +29,15 @@ const Dashboard = ({ user, isAuthenticated, isLoading, data, dataCategories }) =
       <div className='tiles'>
         <Card
           cardType='default'
-          onClick={() => {navigate(`/recipes`)}}
-          cardTitle={`Recipes (${data.length})`}
-          cardContent={<p>Discover contributed recipes.</p>}
-        />
-        <Card
-          cardType='default'
           onClick={() => {navigate(`/contribute`)}}
           cardTitle='Contribute'
           cardContent={<p>Got a recipe to share? Click here to post a recipe.</p>}
+        />
+        <Card
+          cardType='default'
+          onClick={() => {navigate(`/recipes`)}}
+          cardTitle={`Recipes (${data.length})`}
+          cardContent={<p>Discover contributed recipes.</p>}
         />
       </div>
       {/* <div>total recipes contributed: {data.length}</div> */}
