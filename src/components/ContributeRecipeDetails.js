@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import TagButton from "./TagButton";
 
-const RecipeDetails = ({ previousStep, nextStep, title, setTitle, category, setCategory, ingredients, setIngredients, directions, setDirections }) => {
+const RecipeDetails = ({ dataCategoriesFilter, previousStep, nextStep, title, setTitle, category, setCategory, ingredients, setIngredients, directions, setDirections }) => {
 
-  const categories = ["Beef", "Bread", "Cake", "Cookie", "Fish", "Pasta", "Pie", "Pork", "Poultry", "Potato", "Rice", "Salad", "Sandwich", "Sauce", "Soup", "Spices"];
-
-  const options = categories.map((optiionValue, index) => (
+  const options = dataCategoriesFilter.map((optiionValue, index) => (
     <option key={index} value={optiionValue}>{optiionValue}</option>
   ));
 

@@ -6,19 +6,13 @@ import { useNavigate } from 'react-router-dom';
 // layout
 import Layout from '../layout/Layout'
 
-const RecipesPage = ({ isAuthenticated, isLoading, data }) => {
+const RecipesPage = ({ isAuthenticated, isLoading, data, dataCategoriesFilter }) => {
   let navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('all');
   const urlPath = `${process.env.REACT_APP_CDN}`;
   const imgPath = urlPath + 'icons/icons_';
 
-  const optionsArray = data.map((node, index) => {
-    return node.category;
-  });
-
-  const uniqueOptions = optionsArray.filter((node, index, array) => array.indexOf(node) === index);
-
-  const options = uniqueOptions.map((optionValue, index) => (
+  const recipeFilter = dataCategoriesFilter.map((optionValue, index) => (
     <option key={index} value={optionValue}>{optionValue}</option>
   ));
 
@@ -29,8 +23,8 @@ const RecipesPage = ({ isAuthenticated, isLoading, data }) => {
         value={selectedOption}
         onChange={e => setSelectedOption((e.target.value))}
       >
-        <option value="all">All ({optionsArray.length})</option>
-        {options}
+        <option value={'all'}> {'all'} </option>
+        {recipeFilter}
       </select>
     </div>
   )

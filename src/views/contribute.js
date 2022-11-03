@@ -8,7 +8,7 @@ import Confirmation from "../components/ContributeConfirmation";
 // layout
 import Layout from '../layout/Layout'
 
-const Contribute = ({ user, isAuthenticated, isLoading }, ...props) => {
+const Contribute = ({ user, isAuthenticated, isLoading, dataCategoriesFilter }, ...props) => {
   const [step, setStep] = useState(1);
   const [postData, setPostData] = useState();
   const [success, setSuccess] = useState(false);
@@ -23,7 +23,7 @@ const Contribute = ({ user, isAuthenticated, isLoading }, ...props) => {
   const [directions, setDirections] = useState(props.directions || "");
   // form additional message
   // const [message, setMessage] = useState(props.message || "");
-
+  
   // Run once on first render
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -55,6 +55,7 @@ const Contribute = ({ user, isAuthenticated, isLoading }, ...props) => {
           <RecipeDetails
             title={title}
             setTitle={setTitle}
+            dataCategoriesFilter={dataCategoriesFilter}
             category={category}
             setCategory={setCategory}
             ingredients={ingredients}

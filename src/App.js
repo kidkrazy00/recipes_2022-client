@@ -15,7 +15,11 @@ import Recipe from "./views/recipe"
 const App = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [data, setData] = useState([]);
+  const [dataSorted, setDataSorted] = useState([]);
+  const [dataCategories, setDataCategories] = useState([]);
+  const [dataCategoriesFilter, setDataCategoriesFilter] = useState([]);
 
+  // routes
   let inauthenticatedRoutes = [
     {
       path: "/",
@@ -58,7 +62,8 @@ const App = () => {
           index: true,
           element: <Recipes
             pageTitle={Recipes}
-            data={data}
+            data={dataSorted}
+            dataCategoriesFilter={dataCategoriesFilter}
             user={user}
             isAuthenticated={isAuthenticated}
             isLoading={isLoading}
@@ -79,6 +84,7 @@ const App = () => {
       path: "/contribute",
       element: <Contribute
         pageTitle={Contribute}
+        dataCategoriesFilter={dataCategoriesFilter}
         user={user}
         isAuthenticated={isAuthenticated}
         isLoading={isLoading}
@@ -88,7 +94,8 @@ const App = () => {
       path: "/dashboard",
       element: <Dashboard
         pageTitle={Dashboard}
-        data={data}
+        data={dataSorted}
+        dataCategories={dataCategories}
         user={user}
         isAuthenticated={isAuthenticated}
         isLoading={isLoading}
@@ -107,19 +114,35 @@ const App = () => {
   let inauthenticated = useRoutes(inauthenticatedRoutes);
   let authenticated = useRoutes(authenticatedRoutes);
 
+  const initializeData = () => {
+    let sortedDataArray = data.sort((a, b) => a.category.localeCompare(b.category));
+    let dataCategoriesArray = data.reduce((obj, item) => (obj[item.category] = item.category, obj), []);
+    let sortedCategories = dataCategoriesArray.sort((a, b) => a.value.localeCompare(b.value));
+
+    let newCategories = data.reduce(
+      (previousValue, currentValue) => [...previousValue, currentValue.category],
+      [],
+    );
+    let filteredCategories = [...new Set(newCategories)];
+
+    setDataSorted(sortedDataArray)
+    setDataCategories(sortedCategories)
+    setDataCategoriesFilter(filteredCategories)
+    // console.group(sortedDataArray, sortedCategories, filteredCategories)
+  }
+
+  // next step
   useEffect(() => {
     let mounted = true;
-    
-    if (isAuthenticated) {
-      fetchRecipes()
-        .then(data => {
-          if (mounted) {
+
+      if (mounted) {
+        fetchRecipes()
+          .then(data => {
             setData(data.items)
-            // console.log(data.items)
-          }
-        })
+            initializeData(data)
+          })
+      }
       return () => mounted = false;
-    }
   }, [isAuthenticated]);
 
   if (!isAuthenticated) {
