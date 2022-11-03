@@ -5,8 +5,10 @@ import { useNavigate } from "react-router-dom";
 // layout
 import Layout from '../layout/Layout';
 
-const Dashboard = ({ user, isAuthenticated, isLoading }) => {
+const Dashboard = ({ user, isAuthenticated, isLoading, data, dataCategories }) => {
   let navigate = useNavigate();
+
+  const currentCount = (`<small> ${data.length} </small>`);
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -28,8 +30,8 @@ const Dashboard = ({ user, isAuthenticated, isLoading }) => {
         <Card
           cardType='default'
           onClick={() => {navigate(`/recipes`)}}
-          cardTitle='Recipes'
-          cardContent={<p>Discover recipes contributed by others.</p>}
+          cardTitle={`Recipes (${data.length})`}
+          cardContent={<p>Discover contributed recipes.</p>}
         />
         <Card
           cardType='default'
@@ -38,6 +40,7 @@ const Dashboard = ({ user, isAuthenticated, isLoading }) => {
           cardContent={<p>Got a recipe to share? Click here to post a recipe.</p>}
         />
       </div>
+      {/* <div>total recipes contributed: {data.length}</div> */}
     </Layout>
   )
 }
