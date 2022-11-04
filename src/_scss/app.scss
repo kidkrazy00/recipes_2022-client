@@ -1,15 +1,15 @@
 @font-face {
-  font-family: Roboto;
-  src: url(#{$pathToFonts}Roboto/Roboto-Regular.ttf);
-  font-display: swap;
+    font-family: Roboto;
+    src: url(#{$pathToFonts}Roboto/Roboto-Regular.ttf);
+    font-display: swap;
 }
 
 #root:before {
-    content: '';
+    content: "";
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-image: url('#{$pathToImages}stock/pexels-monicore-1087897.jpg');
+    background-image: url("#{$pathToImages}stock/pexels-monicore-1087897.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0% 50%;
@@ -18,7 +18,7 @@
 
     @include breakpoint(small) {
         background-color: rgba(59, 49, 52, 1);
-        background: url('#{$pathToImages}stock/pexels-monicore-1087897-small.jpg') no-repeat;
+        background: url("#{$pathToImages}stock/pexels-monicore-1087897-small.jpg") no-repeat;
         background-size: cover;
     }
 }
@@ -26,7 +26,6 @@
 main {
     position: relative;
     z-index: var(--depth-content);
-    // transform: var(--depth-content);
     max-width: var(--size-max);
     min-height: calc(100vh - (var(--size-header)));
     margin: 0 auto 0 auto;
@@ -42,9 +41,9 @@ footer {
 
     @include containerLayout(
         grid,
-        $rows: 1fr, 
+        $rows: 1fr,
         $columns: repeat(2, 1fr),
-        $gap: var(--layout-content-gap), 
+        $gap: var(--layout-content-gap),
         $padding: var(--size-root-full),
         $width: var(--size-max),
         $margin: 0 auto
@@ -68,3 +67,15 @@ footer {
         }
     }
 }
+
+// gradient text exploration, uncomment to view
+// @mixin clipText {
+//     background: linear-gradient(to top, rgba(0, 220, 120, 1) 25%, rgb(0, 255, 140) 50%);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+// }
+
+// h1,
+// legend {
+//     @include clipText();
+// }
