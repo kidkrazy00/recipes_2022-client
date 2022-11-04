@@ -121,16 +121,14 @@
         }
 
         input[type="search"] {
-            flex: 0 1 auto;
-            color: var(--color-input-fg);
+            width: var(--size-icon-large);
             font-size: var(--size-font);
             font-family: var(--font-family-input);
             font-weight: var(--font-weight-input);
-            background-color: var(--color-input-bg);
             padding: var(--size-root-full);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--color-input-border);
-            transition: all var(--duration);
+            background-color: transparent;
+            border: var(--focus-border-hidden);
+            transition: all var(--duration-quick);
 
             &::placeholder {
                 color: var(--color-placeholder);
@@ -138,9 +136,17 @@
 
             &:focus {
                 flex: 1;
+                color: var(--color-input-fg);
+                background-color: var(--color-input-bg);
+                border-radius: var(--border-radius);
+
                 outline: 2px solid var(--color-focus);
                 // box-shadow: var(--box-shadow-inset);
                 transition: var(--duration-quick);
+
+                & + i {
+                    opacity: 0;
+                }
             }
         }
 
@@ -150,6 +156,7 @@
             right: var(--size-icon-large);
             width: var(--size-icon-large);
             height: var(--size-icon-large);
+            pointer-events: none;
             
             &:before {
                 content: "\f002"; //"\f0b0";
