@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TagButton from "./TagButton";
+import TagInput from "./TagInput";
 
 const RecipeDetails = ({ dataCategoriesFilter, previousStep, nextStep, title, setTitle, category, setCategory, ingredients, setIngredients, directions, setDirections }) => {
 
@@ -36,43 +37,45 @@ const RecipeDetails = ({ dataCategoriesFilter, previousStep, nextStep, title, se
     <>
       <p>Now let's find out about your recipe.</p>
       <fieldset>
-        <div className="element">
-          <label htmlFor="title">Title:</label>
-          <input
-            id="title"
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder={title === undefined || title === '' ? 'Recipe Title' : title}
-            required
-          />
-        </div>
+        <TagInput
+          inputType='input'
+          label='Title:'
+          id={title}
+          className="element"
+          onChange={(e) => setTitle(e.target.value)}
+          type={'text'}
+          value={title}
+          placeholder={title === undefined || title === '' ? 'Recipe Title' : title}
+          required={true}
+        />
         <div className="element">
           <label htmlFor="title">Category:</label>
           {optionsSelect}
         </div>
-        <div className="element">
-          <label htmlFor="ingredients">Ingredients:</label>
-          <textarea
-            id="ingredients"
-            rows="5"
-            value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
-            placeholder={ingredients === undefined || ingredients === '' ? 'Ingredients' : ingredients}
-            required
-          />
-        </div>
-        <div className="element">
-          <label htmlFor="directions">Directions:</label>
-          <textarea
-            id="directions"
-            rows="5"
-            value={directions}
-            onChange={(e) => setDirections(e.target.value)}
-            placeholder={directions === undefined || directions === '' ? 'Directions' : directions}
-            required
-          />
-        </div>
+        <TagInput
+          inputType='textarea'
+          label='Ingredients:'
+          id={ingredients}
+          className="element"
+          onChange={(e) => setIngredients(e.target.value)}
+          type={'text'}
+          value={title}
+          placeholder={ingredients === undefined || ingredients === '' ? 'Ingredients' : ingredients}
+          rows="5"
+          required={true}
+        />
+        <TagInput
+          inputType='textarea'
+          label='Directions:'
+          id={directions}
+          className="element"
+          onChange={(e) => setIngredients(e.target.value)}
+          type={'text'}
+          value={title}
+          placeholder={directions === undefined || directions === '' ? 'Directions' : ingredients}
+          rows="5"
+          required={true}
+        />
       </fieldset>
       {/* <TagButton
         buttonType="button"
