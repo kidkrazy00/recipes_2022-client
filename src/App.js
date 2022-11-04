@@ -4,13 +4,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { fetchRecipes } from './services/fetchRecipes';
 
 import Landing from "./views/landing"
-import About from "./views/about"
-import Oops from "./views/Oops"
+import About from "./views/_about"
+import Oops from "./views/oops"
 
 import Dashboard from "./views/dashboard"
 import Contribute from "./views/contribute"
-import Recipes from "./views/recipes"
 import Recipe from "./views/recipe"
+import Search from "./views/search"
 // import { initialize } from "workbox-google-analytics";
 
 const App = () => {
@@ -81,7 +81,8 @@ const App = () => {
     {
       path: "/",
       element: <Dashboard
-        pageTitle={Dashboard}
+        pageTitle={'Dashboard'}
+        data={dataSorted}
         user={user}
         isAuthenticated={isAuthenticated}
         isLoading={isLoading}
@@ -92,8 +93,8 @@ const App = () => {
       children: [
         {
           index: true,
-          element: <Recipes
-            pageTitle={Recipes}
+          element: <Search
+            pageTitle={'Recipes'}
             data={dataSorted}
             dataCategoriesFilter={dataCategoriesFilter}
             user={user}
@@ -125,7 +126,7 @@ const App = () => {
     {
       path: "/dashboard",
       element: <Dashboard
-        pageTitle={Dashboard}
+        pageTitle={'Dashboard'}
         data={dataSorted}
         dataCategories={dataCategories}
         user={user}

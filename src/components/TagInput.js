@@ -4,7 +4,7 @@ const TagInput = (props) => {
 
   const {
     inputType, className, disabled, onChange, label, icon, placeholder, required,
-    name, type, value, aria, tabIndex, children, id, rows
+    type, value, aria, tabIndex, children, id, rows
   } = props;
 
   return (

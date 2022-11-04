@@ -3,7 +3,7 @@ import LayoutBare from "../layout/LayoutBare"
 import Nag from "../components/Nag"
 
 // markup
-const Oops = ({ isAuthenticated, isLoading }) => {
+const oops = ({ isAuthenticated, isLoading }) => {
 
   return (
     <LayoutBare pageClass="oops">
@@ -14,4 +14,4 @@ const Oops = ({ isAuthenticated, isLoading }) => {
   )
 }
 
-export default Oops
+export default oops
