@@ -59,7 +59,7 @@ const RecipeDetails = ({ dataCategoriesFilter, previousStep, nextStep, title, se
           className="element"
           onChange={(e) => setIngredients(e.target.value)}
           type={'text'}
-          value={title}
+          value={ingredients}
           placeholder={ingredients === undefined || ingredients === '' ? 'Ingredients' : ingredients}
           rows="5"
           required={true}
@@ -69,9 +69,9 @@ const RecipeDetails = ({ dataCategoriesFilter, previousStep, nextStep, title, se
           label='Directions:'
           id={directions}
           className="element"
-          onChange={(e) => setIngredients(e.target.value)}
+          onChange={(e) => setDirections(e.target.value)}
           type={'text'}
-          value={title}
+          value={directions}
           placeholder={directions === undefined || directions === '' ? 'Directions' : ingredients}
           rows="5"
           required={true}
