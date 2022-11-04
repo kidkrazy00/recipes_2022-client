@@ -18,7 +18,7 @@ const TagInput = (props) => {
           <input
             id={id}
             onChange={onChange}
-            aria-label={aria ? aria : name}
+            aria-label={aria ? aria : label}
             type={type}
             value={value}
             placeholder={placeholder}
