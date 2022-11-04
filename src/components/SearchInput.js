@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import TagInput from "./TagInput";
 
 const SearchInput = ({ data, setSearchTerm }) => {
   let navigate = useNavigate();
 
   return (
-    <input
+    <TagInput
       inputType={'input'}
       id={'search'}
       className={'element'}
@@ -13,7 +14,9 @@ const SearchInput = ({ data, setSearchTerm }) => {
       type={'search'}
       onChange={(event) => setSearchTerm(event.target.value)}
       placeholder='Search by category or title...'
-    />
+    >
+      <i />
+    </TagInput>
   )
 }
 
